@@ -1,4 +1,4 @@
-const listadoAsignaturas = [];
+const listaAsignaturas = [];
 
 const cargarFormularioAsignaturas = () => {
     const formularioAsignaturas = document.getElementById('asignaturas-form');
@@ -18,9 +18,53 @@ const cargarFormularioAsignaturas = () => {
 
             <button type="button" onclick="agregarHorario()">Agregar Horario</button>
             <button type="button" onclick="crearAsignatura()">Agregar Asignatura</button>
+            <button type="button" onclick="mostrarListadoAsignaturas()">Mostrar Asignaturas</button>
+
         </form>
     `;
 };
+
+const mostrarListadoAsignaturas = async () => {
+
+    const asignaturasForm = document.getElementById('asignaturas-form')
+    const listadoAsignaturas = document.getElementById('listado-asignaturas')
+
+    asignaturasForm.style.display = "none";
+    listadoAsignaturas.style.display = "block";
+
+    const ul = document.createElement('ul');
+
+    for (const asignatura of listaAsignaturas){
+        const li = document.createElement('li');
+        li.textContent = `ID: ${asignatura.id} Código: ${asignatura.codigo} Creditos: ${asignatura.creditos}
+        cupos Disponibles: ${asignatura.cupos_disponibles}`
+        const horarioInfo = asignatura.horario_clases.map(horario => ` DÍA : ${horario.dia} HORA INICIO: ${horario.hora_inicio} HORA FIN: ${horario.hora_fin}`);
+        const horarioElement = document.createElement('p');
+        horarioElement.textContent = `Horario: ${horarioInfo}`;
+        li.appendChild(horarioElement);
+        ul.appendChild(li)
+    }
+
+    listadoAsignaturas.innerHTML = '';
+    listadoAsignaturas.appendChild(ul)
+
+    const volverButton=document.createElement('button');
+    volverButton.textContent='Volver al Formulario';
+    volverButton.addEventListener('click',volverAlFormularioAsignaturas);
+    listadoAsignaturas.appendChild(volverButton);
+
+}
+
+const volverAlFormularioAsignaturas = () => {
+
+    
+    const asignaturasForm = document.getElementById('asignaturas-form');
+    const listadoAsignaturas = document.getElementById('listado-asignaturas');
+
+    asignaturasForm.style.display = "block";
+    listadoAsignaturas.style.display = "none";
+}
+
 const agregarHorario = () => {
     const horariosContainer = document.getElementById('horarios-container');
     const nuevoHorario = document.createElement('div');
@@ -43,8 +87,6 @@ const agregarHorario = () => {
     `;
     horariosContainer.appendChild(nuevoHorario);
 };
-
-
 
 const crearAsignatura = async () => {
 
@@ -69,7 +111,7 @@ const crearAsignatura = async () => {
 
 
     const nuevaAsignatura = {
-        id : listadoAsignaturas.length + 1,
+        id : listaAsignaturas.length + 1,
         codigo : codigoAsignatura,
         creditos : creditos,
         cupos_disponibles : cuposDisponibles,
@@ -88,7 +130,6 @@ const crearAsignatura = async () => {
 
     return nuevaAsignatura
 }
-
 
 const guardarAsignaturaJson = async (nuevaAsignatura) => {
     try {
@@ -117,18 +158,19 @@ const guardarAsignaturaJson = async (nuevaAsignatura) => {
 const loadAsignaturas = async () => {
 
     try {
-        listadoAsignaturas.length = 0;
+        listaAsignaturas.length = 0;
         const respuesta = await fetch('http://localhost:3000/asignaturas');
 
         if (!respuesta.ok) {
-            throw new Error('Error al cargar nueva Asingatura. Estado', respuesta.status);
+            throw new Error('Error al cargar Asignaturas. Estado', respuesta.status);
         }
 
         // si la respuesta del servidor es exitosa se convierte la respuesta en formato json y los objetos se guardan en departamentos <3
         const asignatura = await respuesta.json();
-        listadoAsignaturas.push(...asignatura);
+        listaAsignaturas.push(...asignatura);
 
     } catch (error) {
-        console.error("Error al cargar nueva Asignatura", error.meesage)
+        console.error("Error al cargar Asignatura", error.meesage)
     }
 }
+

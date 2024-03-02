@@ -24,9 +24,46 @@ const cargarFormularioProfesores = () => {
         <input type = "text" id = "apellidoProfesor" required> 
 
         <button type = "button" onclick = "crearProfesor()">Agregar Docente</button>
+        <button type = "button" onclick = "mostrarListadoProfesores()">Mostrar Docentes</button>
 
     </form>
     `;
+}
+
+const mostrarListadoProfesores = async () => {
+    await loadProfesor();
+    const profesoresForm = document.getElementById('profesores-form');
+    const listadoProfesores = document.getElementById('listado-profesores');
+
+    profesoresForm.style.display = "none";
+    listadoProfesores.style.display = "block";
+
+    const ul = document.createElement('ul');
+
+    for (const profesor of listaProfesores){
+        const li = document.createElement('li');
+        li.textContent = `ID: ${profesor.id} Nombres: ${profesor.nombre + " " + profesor.apellido}
+        Tipo Documento: ${profesor.tipoDocumento} Número Documento: ${profesor.numeroDocumento}`
+        ul.appendChild(li)
+    }
+
+    listadoProfesores.innerHTML = '';
+    listadoProfesores.appendChild(ul)
+
+    const volverButton=document.createElement('button');
+    volverButton.textContent='Volver al Formulario';
+    volverButton.addEventListener('click',volverAlFormularioProfesores);
+    listadoProfesores.appendChild(volverButton);
+}
+
+const volverAlFormularioProfesores = () => {
+
+    const profesoresForm = document.getElementById('profesores-form');
+    const listadoProfesores = document.getElementById('listado-profesores');
+
+    profesoresForm.style.display = "block";
+    listadoProfesores.style.display = "none";
+
 }
 
 const crearProfesor = async () => {
