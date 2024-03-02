@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    await loadDepartamento();
-    cargarFormularioDepartamentos();
+    await loadEstudiantes();
+    cargarFormularioEstudiantes();
+    await loadProfesor();
+    cargarFormularioProfesores();
+    await loadAsignaturas();
+    cargarFormularioAsignaturas();
+    agregarHorario();
 
 })
