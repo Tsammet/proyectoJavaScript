@@ -24,4 +24,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     await loadSalones();
     mostrarListadoSalones();
+
+    funcionPaginas();
 })
