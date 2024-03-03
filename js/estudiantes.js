@@ -1,7 +1,9 @@
 // ESTA LÍNEA LA UTILIZO PARA CREAR NUEVOS DATOS Y CARGARLOS 
 const listaEstudiantes = []
 
-const cargarFormularioEstudiantes = () => {
+const cargarFormularioEstudiantes = async () => {
+
+    await loadProgramas();
 
     const estudiantesForm = document.getElementById('estudiantes-form');
     estudiantesForm.innerHTML = `
@@ -44,23 +46,104 @@ const cargarFormularioEstudiantes = () => {
                 <option value="otro">Otro</option>
         </select>
 
+        
+        <label for="programaEstudiante">Programa:</label>
+        <select id="programaEstudiante" required>
+            ${programaEstudiante()}
+        </select>
+        
+        
         <button type = "button" onclick = "crearEstudiante()">Agregar Estudiante</button>
         <button type = "button" onclick = "mostrarListadoEstudiantes()">Ver los Estudiantes</button>
+        
+        </form>
+        `;
+        
+        const listadoEstudiantes = document.getElementById('listado-estudiantes');
+        listadoEstudiantes.style.display = "none"
 
-    </form>
-    `;
+        
+    }
 
-    const listadoEstudiantes = document.getElementById('listado-estudiantes');
-    listadoEstudiantes.style.display = "none"
+const crearEstudiante = async () => {
+    
+        const nombreEstudianteInput = document.getElementById('nombreEstudiante');
+        const apellidoEstudianteInput = document.getElementById('apellidoEstudiante');
+        const tipoDocumentoEstudianteInput = document.getElementById('tipoDocumentoestudiante');
+        const numeroDocumentoEstudianteInput = document.getElementById('numeroDocumentoEstudiante');
+        const ciudadResidenciaEstudianteInput = document.getElementById('ciudadResidenciaEstudiante');
+        const direccionEstudianteInput = document.getElementById('direccionEstudiante');
+        const telefonoEstudianteInput = document.getElementById('telefonoEstudiante');
+        const fechaNacimientoEstudianteInput = document.getElementById('fechaNacimientoEstudiante');
+        const generoEstudianteInput = document.getElementById('generoEstudiante');
+        const programaEstudianteSelect = document.getElementById('programaEstudiante')
 
 
+        const nombreEstudiante = nombreEstudianteInput.value;
+        const apellidoEstudiante = apellidoEstudianteInput.value;
+        const tipoDocumentoestudiante = tipoDocumentoEstudianteInput.value;
+        const numeroDocumentoEstudiante = numeroDocumentoEstudianteInput.value;
+        const ciudadResidenciaEstudiante = ciudadResidenciaEstudianteInput.value;
+        const direccionEstudiante = direccionEstudianteInput.value;
+        const telefonoEstudiante = telefonoEstudianteInput.value;
+        const fechaNacimientoEstudiante = fechaNacimientoEstudianteInput.value;
+        const generoEstudiante = generoEstudianteInput.value;
+        const programaEstudiante = programaEstudianteSelect.value;
+    
+        const nuevoEstudiante = {
+    
+            id: listaEstudiantes.length + 1,
+            nombre: nombreEstudiante,
+            apellido: apellidoEstudiante,
+            tipo_documento: tipoDocumentoestudiante,
+            numero_documento: numeroDocumentoEstudiante,
+            ciudad_residencia: ciudadResidenciaEstudiante,
+            direccion: direccionEstudiante,
+            telefono: telefonoEstudiante,
+            fecha_nacimiento: fechaNacimientoEstudiante,
+            sexo: generoEstudiante,
+            programa_id : programaEstudiante
+    
+        };
+    
+        // SE UTILIZA ESTA FUNCIÓN PARA GUARDAR EL NUEVO DEPARTAMENTO
+        await guardarEstudiantesJson(nuevoEstudiante);
+    
+        // se llama esta función pararecargar la lista de departamentos desde el servidor.
+        // Esto asegura que la lista de departamentos se actualice cn la que se acabó de crear
+        await loadEstudiantes();
+    
+        nombreEstudianteInput.value = '';
+        apellidoEstudianteInput.value = '';
+        tipoDocumentoEstudianteInput.value = '';
+        numeroDocumentoEstudianteInput.value = '';
+        ciudadResidenciaEstudianteInput.value = '';
+        direccionEstudianteInput.value = '';
+        telefonoEstudianteInput.value = '';
+        fechaNacimientoEstudianteInput.value = '';
+        generoEstudianteInput.value = '';
+    
+    
+        alert('Estudiante Registrado Con Exito! :D');
+    
+        return nuevoEstudiante;
+    }
+
+const programaEstudiante = () => {
+
+    let opcionesProgramas = '';
+    for(const programa of listaProgramas){
+        opcionesProgramas += `<option value = ${programa.id}>${programa.nombre}</options>`
+    }
+
+    return opcionesProgramas
 }
 
 const mostrarListadoEstudiantes = async() => {
     await loadEstudiantes();
     const estudiantesForm = document.getElementById('estudiantes-form');
     const listadoEstudiantes = document.getElementById('listado-estudiantes');
-
+    
     estudiantesForm.style.display = "none";
     listadoEstudiantes.style.display = "block";
 
@@ -70,7 +153,8 @@ const mostrarListadoEstudiantes = async() => {
         const li = document.createElement('li')
         li.textContent = `ID : ${estudiante.id} Nombre Estudiante: ${estudiante.nombre + " " + estudiante.apellido} 
         Tipo Documento: ${estudiante.tipo_documento} Numero Documento: ${estudiante.numero_documento} Ciudad Residencia: ${estudiante.ciudad_residencia}
-        Direccion: ${estudiante.direccion} Telefono: ${estudiante.telefono} Fecha Nacimiento: ${estudiante.fecha_nacimiento} Genero: ${estudiante.sexo}`
+        Direccion: ${estudiante.direccion} Telefono: ${estudiante.telefono} Fecha Nacimiento: ${estudiante.fecha_nacimiento} Genero: ${estudiante.sexo}
+        Programa: ${estudiante.programa_id}`
         ul.appendChild(li)
     }
 
@@ -127,73 +211,13 @@ const guardarEstudiantesJson = async (nuevoEstudiante) => {
         if (!respuesta.ok) {
             throw new Error('Error al registrar el estudiante. Estado: ', respuesta.status);
         }
-
+        
         const estudianteCreado = await respuesta.json();
-
+        
         console.log('Estudiante registrado:', estudianteCreado);
-
-
+        
+        
     } catch (error) {
         console.log("Error al cargar Estudiantes", error.meesage)
     }
-}
-
-const crearEstudiante = async () => {
-
-    const nombreEstudianteInput = document.getElementById('nombreEstudiante');
-    const apellidoEstudianteInput = document.getElementById('apellidoEstudiante');
-    const tipoDocumentoEstudianteInput = document.getElementById('tipoDocumentoestudiante');
-    const numeroDocumentoEstudianteInput = document.getElementById('numeroDocumentoEstudiante');
-    const ciudadResidenciaEstudianteInput = document.getElementById('ciudadResidenciaEstudiante');
-    const direccionEstudianteInput = document.getElementById('direccionEstudiante');
-    const telefonoEstudianteInput = document.getElementById('telefonoEstudiante');
-    const fechaNacimientoEstudianteInput = document.getElementById('fechaNacimientoEstudiante');
-    const generoEstudianteInput = document.getElementById('generoEstudiante');
-
-    const nombreEstudiante = nombreEstudianteInput.value;
-    const apellidoEstudiante = apellidoEstudianteInput.value;
-    const tipoDocumentoestudiante = tipoDocumentoEstudianteInput.value;
-    const numeroDocumentoEstudiante = numeroDocumentoEstudianteInput.value;
-    const ciudadResidenciaEstudiante = ciudadResidenciaEstudianteInput.value;
-    const direccionEstudiante = direccionEstudianteInput.value;
-    const telefonoEstudiante = telefonoEstudianteInput.value;
-    const fechaNacimientoEstudiante = fechaNacimientoEstudianteInput.value;
-    const generoEstudiante = generoEstudianteInput.value;
-
-    const nuevoEstudiante = {
-
-        id: listaEstudiantes.length + 1,
-        nombre: nombreEstudiante,
-        apellido: apellidoEstudiante,
-        tipo_documento: tipoDocumentoestudiante,
-        numero_documento: numeroDocumentoEstudiante,
-        ciudad_residencia: ciudadResidenciaEstudiante,
-        direccion: direccionEstudiante,
-        telefono: telefonoEstudiante,
-        fecha_nacimiento: fechaNacimientoEstudiante,
-        sexo: generoEstudiante,
-
-    };
-
-    // SE UTILIZA ESTA FUNCIÓN PARA GUARDAR EL NUEVO DEPARTAMENTO
-    await guardarEstudiantesJson(nuevoEstudiante);
-
-    // se llama esta función pararecargar la lista de departamentos desde el servidor.
-    // Esto asegura que la lista de departamentos se actualice cn la que se acabó de crear
-    await loadEstudiantes();
-
-    nombreEstudianteInput.value = '';
-    apellidoEstudianteInput.value = '';
-    tipoDocumentoEstudianteInput.value = '';
-    numeroDocumentoEstudianteInput.value = '';
-    ciudadResidenciaEstudianteInput.value = '';
-    direccionEstudianteInput.value = '';
-    telefonoEstudianteInput.value = '';
-    fechaNacimientoEstudianteInput.value = '';
-    generoEstudianteInput.value = '';
-
-
-    alert('Estudiante Registrado Con Exito! :D');
-
-    return nuevoEstudiante;
 }

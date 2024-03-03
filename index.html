@@ -27,7 +27,11 @@
                     <ul class="navbar-nav ms-auto">
 
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" id="asignaturasNav" onclick="asignaturasPage()">Asignaturas</a>
+                            <a class="nav-link active" aria-current="page" id="main-pageNav"">Pág Principal</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" id="asignaturasNav">Asignaturas</a>
                         </li>
 
                         <li class="nav-item">
@@ -55,6 +59,10 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" id="cursosNav">Cursos</a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link active" aria-current="page" id="tarifasNav">Tarifas</a>
                         </li>
 
@@ -66,6 +74,10 @@
     </section>
 
     <main>
+
+        <section id="main-page">
+            <h2>UNIVERSIDAD DE LOS SABIOS</h2>
+        </section>
 
         <section id="estudiantes">
             <h2>Módulo de Estudiantes</h2>
@@ -106,6 +118,11 @@
             <div id="listado-departamentos"></div>
         </section>
 
+        <section id="cursos">
+            <h2>Módulo de Cursos</h2>
+            <div id="listado-cursos"></div>
+        </section>
+
         <section id="salones">
             <h2>Módulo de Salones</h2>
             <div id="listado-salones"></div>
@@ -122,6 +139,7 @@
     <script src="js/tarifas.js"></script>
     <script src="js/departamentos.js"></script>
     <script src="js/salones.js"></script>
+    <script src="js/cursos.js"></script>
     <script src="js/paginaEstoy.js"></script>
 
 </body>

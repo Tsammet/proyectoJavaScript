@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    funcionPaginas();
+    mainPage();
 
     await loadEstudiantes();
     cargarFormularioEstudiantes();
@@ -22,8 +24,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     await loadDepartamentos();
     mostrarListadoDepartamentos();
 
+    await loadCursos();
+    mostrarListadoCursos();
+
     await loadSalones();
     mostrarListadoSalones();
 
-    funcionPaginas();
 })

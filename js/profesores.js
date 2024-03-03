@@ -1,6 +1,8 @@
 const listaProfesores = [];
 
-const cargarFormularioProfesores = () => {
+const cargarFormularioProfesores = async () => {
+
+    await loadDepartamentos()
 
     const profesoresForm = document.getElementById('profesores-form');
     profesoresForm.innerHTML = `
@@ -23,6 +25,11 @@ const cargarFormularioProfesores = () => {
         <label for = "apellidosProfesor">Apellidos: </label>
         <input type = "text" id = "apellidoProfesor" required> 
 
+        <label for="departamentoProfesor">Departamento:</label>
+            <select id="departamentoProfesor" required>
+            ${departamentoProfesor()}
+        </select>
+
         <button type = "button" onclick = "crearProfesor()">Agregar Docente</button>
         <button type = "button" onclick = "mostrarListadoProfesores()">Mostrar Docentes</button>
 
@@ -43,7 +50,7 @@ const mostrarListadoProfesores = async () => {
     for (const profesor of listaProfesores){
         const li = document.createElement('li');
         li.textContent = `ID: ${profesor.id} Nombres: ${profesor.nombre + " " + profesor.apellido}
-        Tipo Documento: ${profesor.tipoDocumento} Número Documento: ${profesor.numeroDocumento}`
+        Tipo Documento: ${profesor.tipo_documento} Número Documento: ${profesor.numero_documento} Departamento ID: ${profesor.departamento_id}`
         ul.appendChild(li)
     }
 
@@ -72,11 +79,14 @@ const crearProfesor = async () => {
     const numeroDocumentoInput = document.getElementById('numeroDocumento');
     const nombreProfesorInput = document.getElementById('nombreProfesor');
     const apellidoProfesorInput = document.getElementById('apellidoProfesor');
+    const departamentoProfesorSelect = document.getElementById('departamentoProfesor')
 
     const tipoDocumento = tipoDocumentoInput.value;
     const numeroDocumento = numeroDocumentoInput.value;
     const nombreProfesor = nombreProfesorInput.value;
     const apellidoProfesor = apellidoProfesorInput.value;
+    const departamentoProfesor = departamentoProfesorSelect.value;
+
 
     const nuevoProfesor = {
         id: listaProfesores.length + 1,
@@ -84,6 +94,7 @@ const crearProfesor = async () => {
         numero_documento: numeroDocumento,
         nombre: nombreProfesor,
         apellido: apellidoProfesor,
+        departamento_id : departamentoProfesor,
     }
 
     await guardarProfesorJson(nuevoProfesor);
@@ -98,6 +109,15 @@ const crearProfesor = async () => {
 
     return nuevoProfesor
 
+}
+
+const departamentoProfesor = () => {
+    let opcionesDepartamento = '';
+    for(const departamento of listaDepartamentos){
+        opcionesDepartamento += `<option value = ${departamento.id}>${departamento.nombre}</options>`
+    }
+
+    return opcionesDepartamento
 }
 
 const guardarProfesorJson = async (nuevoProfesor) => {

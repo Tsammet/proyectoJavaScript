@@ -87,6 +87,19 @@
       "fecha_nacimiento": "1992-05-15",
       "sexo": "Femenino",
       "programa_id": 2
+    },
+    {
+      "id": 3,
+      "nombre": "Carlos Augusto",
+      "apellido": "Sánchez Díaz",
+      "tipo_documento": "CC",
+      "numero_documento": "1095838993",
+      "ciudad_residencia": "Bucaramanga",
+      "direccion": "Cra 6a # 65b 36",
+      "telefono": "3163357227",
+      "fecha_nacimiento": "1998-09-22",
+      "sexo": "masculino",
+      "programa_id": "1"
     }
   ],
   "cursos": [

@@ -1,28 +1,131 @@
 const listaAsignaturas = [];
 
-const cargarFormularioAsignaturas = () => {
+const cargarFormularioAsignaturas = async () => {
+
+    await loadCursos();
+
     const formularioAsignaturas = document.getElementById('asignaturas-form');
     formularioAsignaturas.innerHTML = `
-        <form>
-            <label for="codigoAsignatura">Código:</label>
-            <input type="text" id="codigoAsignatura" required>
+    <form>
 
-            <label for="creditos">Créditos:</label>
-            <input type="number" id="creditos" required>
+        <label for="cursoAsignatura">Curso:</label>
+        <select id="cursoAsignatura" required>
+            ${cursoAsignatura()}
+        </select>
 
-            <label for="cuposDisponibles">Cupos Disponibles:</label>
-            <input type="number" id="cuposDisponibles" required>
+        <label for="codigoAsignatura">Código:</label>
+        <input type="text" id="codigoAsignatura" required>
 
-            <div id="horarios-container">
-            </div>
+        <label for="creditos">Créditos:</label>
+        <input type="number" id="creditos" required>
 
-            <button type="button" onclick="agregarHorario()">Agregar Horario</button>
-            <button type="button" onclick="crearAsignatura()">Agregar Asignatura</button>
-            <button type="button" onclick="mostrarListadoAsignaturas()">Mostrar Asignaturas</button>
+        <label for="profesorAsignatura">Profesor:</label>
+        <select id="profesorAsignatura" required>
+            ${profesorAsignatura()}
+        </select>
+
+        <label for="cuposDisponibles">Cupos Disponibles:</label>
+        <input type="number" id="cuposDisponibles" required>
+
+        <label for="programaAsignatura">Programa:</label>
+        <select id="programaAsignatura" required>
+            ${programaAsignatura()}
+        </select>
+
+        <div id="horarios-container">
+        </div>
+
+        <button type="button" onclick="agregarHorario()">Agregar Horario</button>
+        <button type="button" onclick="crearAsignatura()">Agregar Asignatura</button>
+        <button type="button" onclick="mostrarListadoAsignaturas()">Mostrar Asignaturas</button>
 
         </form>
     `;
 };
+
+const crearAsignatura = async () => {
+
+    const codigoAsignaturaInput = document.getElementById('codigoAsignatura');
+    const creditosInput = document.getElementById('creditos');
+    const cuposDisponiblesInput = document.getElementById('cuposDisponibles');
+    const cursoAsignaturaSelect = document.getElementById('cursoAsignatura')
+    const profesorAsignaturaSelect = document.getElementById('profesorAsignatura')
+    const programaAsignaturaSelect = document.getElementById('programaAsignatura')
+
+    const cursoAsignatura = cursoAsignaturaSelect.value;
+    const profesorAsignatura = profesorAsignaturaSelect.value;
+    const programaAsignatura = programaAsignaturaSelect.value;
+    const codigoAsignatura = codigoAsignaturaInput.value;
+    const creditos = creditosInput.value;
+    const cuposDisponibles = cuposDisponiblesInput.value;
+
+
+    const horarios = [];
+    const horariosInputs = document.querySelectorAll('.horario');
+    horariosInputs.forEach(horarioInput => {
+        const diaSemana = horarioInput.querySelector('.diaSemana').value;
+        const horaInicio = horarioInput.querySelector('.horaInicio').value;
+        const horaFin = horarioInput.querySelector('.horaFin').value;
+        horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin });
+    });
+
+
+    const nuevaAsignatura = {
+        id: listaAsignaturas.length + 1,
+        curso_id: cursoAsignatura,
+        codigo: codigoAsignatura,
+        creditos: creditos,
+        profesor_id : profesorAsignatura,
+        cupos_disponibles: cuposDisponibles,
+        programa_id : programaAsignatura,
+        horario_clases: horarios
+    }
+
+    await loadAsignaturas();
+    await guardarAsignaturaJson(nuevaAsignatura);
+
+    codigoAsignaturaInput.value = ''
+    cursoAsignaturaSelect.value = ''
+    profesorAsignaturaSelect.value = ''
+    creditosInput.value = ''
+    cuposDisponiblesInput.value = ''
+    programaAsignaturaSelect.value = ''
+
+
+    alert('Nueva Asignatura creada con exito!')
+
+    return nuevaAsignatura
+}
+
+const cursoAsignatura = () => {
+
+    let opcionesCursos = '';
+    for (const curso of listaCursos) {
+        opcionesCursos += `<option value = ${curso.id}>${curso.nombre}</options>`
+    }
+
+    return opcionesCursos
+}
+
+const profesorAsignatura = () => {
+
+    let opcionesProfesores = '';
+    for (const profesor of listaProfesores) {
+        opcionesProfesores += `<option value = ${profesor.id}>${profesor.nombre + " " + profesor.apellido}</options>`
+    }
+
+    return opcionesProfesores
+}
+
+const programaAsignatura = () => {
+
+    let programaAsignatura = '';
+    for (const programa of listaProgramas) {
+        programaAsignatura += `<option value = ${programa.id}>${programa.nombre}</options>`
+    }
+
+    return programaAsignatura
+}
 
 const mostrarListadoAsignaturas = async () => {
 
@@ -34,7 +137,7 @@ const mostrarListadoAsignaturas = async () => {
 
     const ul = document.createElement('ul');
 
-    for (const asignatura of listaAsignaturas){
+    for (const asignatura of listaAsignaturas) {
         const li = document.createElement('li');
         li.textContent = `ID: ${asignatura.id} Código: ${asignatura.codigo} Creditos: ${asignatura.creditos}
         cupos Disponibles: ${asignatura.cupos_disponibles}`
@@ -48,16 +151,16 @@ const mostrarListadoAsignaturas = async () => {
     listadoAsignaturas.innerHTML = '';
     listadoAsignaturas.appendChild(ul)
 
-    const volverButton=document.createElement('button');
-    volverButton.textContent='Volver al Formulario';
-    volverButton.addEventListener('click',volverAlFormularioAsignaturas);
+    const volverButton = document.createElement('button');
+    volverButton.textContent = 'Volver al Formulario';
+    volverButton.addEventListener('click', volverAlFormularioAsignaturas);
     listadoAsignaturas.appendChild(volverButton);
 
 }
 
 const volverAlFormularioAsignaturas = () => {
 
-    
+
     const asignaturasForm = document.getElementById('asignaturas-form');
     const listadoAsignaturas = document.getElementById('listado-asignaturas');
 
@@ -87,49 +190,6 @@ const agregarHorario = () => {
     `;
     horariosContainer.appendChild(nuevoHorario);
 };
-
-const crearAsignatura = async () => {
-
-    const codigoAsignaturaInput = document.getElementById('codigoAsignatura');
-    const creditosInput = document.getElementById('creditos');
-    const cuposDisponiblesInput = document.getElementById('cuposDisponibles');
-
-
-    const codigoAsignatura = codigoAsignaturaInput.value;
-    const creditos = creditosInput.value;
-    const cuposDisponibles = cuposDisponiblesInput.value;
-
-
-    const horarios = [];
-    const horariosInputs = document.querySelectorAll('.horario');
-    horariosInputs.forEach(horarioInput => {
-        const diaSemana = horarioInput.querySelector('.diaSemana').value;
-        const horaInicio = horarioInput.querySelector('.horaInicio').value;
-        const horaFin = horarioInput.querySelector('.horaFin').value;
-        horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin });
-    });
-
-
-    const nuevaAsignatura = {
-        id : listaAsignaturas.length + 1,
-        codigo : codigoAsignatura,
-        creditos : creditos,
-        cupos_disponibles : cuposDisponibles,
-        horario_clases : horarios
-    }
-
-    await loadAsignaturas ();
-    await guardarAsignaturaJson(nuevaAsignatura);
-
-    codigoAsignaturaInput.value = ''
-    creditosInput.value = ''
-    cuposDisponiblesInput.value = ''
-
-
-    alert('Nueva Asignatura creada con exito!')
-
-    return nuevaAsignatura
-}
 
 const guardarAsignaturaJson = async (nuevaAsignatura) => {
     try {
