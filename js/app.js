@@ -28,5 +28,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     await loadSalones();
     mostrarListadoSalones();
+
+    await loadMatriculas();
+    cargarFormularioMatriculas();
     
 })

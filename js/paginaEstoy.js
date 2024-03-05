@@ -7,6 +7,7 @@ const paginaProgramas = document.getElementById('programas')
 const paginaSalones = document.getElementById('salones')
 const paginaTarifas = document.getElementById('tarifas')
 const paginaCursos = document.getElementById('cursos')
+const paginaMatriculas = document.getElementById('matriculas')
 const paginaMain = document.getElementById('main-page')
 
 const mainPage = () => {
@@ -20,6 +21,8 @@ const mainPage = () => {
     paginaSalones.style.display = "none";
     paginaTarifas.style.display = "none";
     paginaCursos.style.display = "none"
+    paginaMatriculas.style.display = "none"
+    
 }
 
 const asignaturasPage = () => {
@@ -33,6 +36,7 @@ const asignaturasPage = () => {
     paginaSalones.style.display = "none";
     paginaTarifas.style.display = "none";
     paginaCursos.style.display = "none"
+    paginaMatriculas.style.display = "none"
 }
 
 const departamentosPage = () => {
@@ -46,6 +50,7 @@ const departamentosPage = () => {
     paginaSalones.style.display = "none";
     paginaCursos.style.display = "none"
     paginaTarifas.style.display = "none";
+    paginaMatriculas.style.display = "none"
 }
 
 const estudiantesPage = () => {
@@ -59,6 +64,7 @@ const estudiantesPage = () => {
     paginaSalones.style.display = "none";
     paginaTarifas.style.display = "none";
     paginaCursos.style.display = "none"
+    paginaMatriculas.style.display = "none"
 }
 
 const periodosPage = () => {
@@ -72,6 +78,7 @@ const periodosPage = () => {
     paginaSalones.style.display = "none";
     paginaTarifas.style.display = "none";
     paginaCursos.style.display = "none"
+    paginaMatriculas.style.display = "none"
 }
 
 const profesoresPage = () => {
@@ -85,6 +92,7 @@ const profesoresPage = () => {
     paginaSalones.style.display = "none";
     paginaCursos.style.display = "none"
     paginaTarifas.style.display = "none";
+    paginaMatriculas.style.display = "none"
 }
 
 const programasPage = () => {
@@ -98,6 +106,7 @@ const programasPage = () => {
     paginaSalones.style.display = "none";
     paginaTarifas.style.display = "none";
     paginaCursos.style.display = "none"
+    paginaMatriculas.style.display = "none"
 }
 
 const salonesPage = () => {
@@ -111,6 +120,7 @@ const salonesPage = () => {
     paginaSalones.style.display = "block";
     paginaTarifas.style.display = "none";
     paginaCursos.style.display = "none"
+    paginaMatriculas.style.display = "none"
 }
 
 const tarifasPage = () => {
@@ -124,6 +134,7 @@ const tarifasPage = () => {
     paginaSalones.style.display = "none";
     paginaCursos.style.display = "none"
     paginaTarifas.style.display = "block";
+    paginaMatriculas.style.display = "none"
 }
 
 const cursosPage = () => {
@@ -137,6 +148,20 @@ const cursosPage = () => {
     paginaSalones.style.display = "none";
     paginaTarifas.style.display = "none";
     paginaCursos.style.display = "block"
+    paginaMatriculas.style.display = "none"
+}
+const matriculasPage = () => {
+    paginaMain.style.display = "none"
+    paginaAsignaturas.style.display = "none";
+    paginaDepartamentos.style.display = "none";
+    paginaEstudiantes.style.display = "none";
+    paginaPeriodos.style.display = "none";
+    paginaProfesores.style.display = "none";
+    paginaProgramas.style.display = "none";
+    paginaSalones.style.display = "none";
+    paginaTarifas.style.display = "none";
+    paginaCursos.style.display = "none"
+    paginaMatriculas.style.display = "block"
 }
 
 const funcionPaginas = () => {
@@ -166,6 +191,9 @@ const funcionPaginas = () => {
 
     const cursosNavLink = document.getElementById('cursosNav');
     cursosNavLink.addEventListener('click', cursosPage)
+
+    const matriculasNavLink = document.getElementById('matriculasNav');
+    matriculasNavLink.addEventListener('click' ,matriculasPage)
 
     const salonesNavLink = document.getElementById('salonesNav');
     salonesNavLink.addEventListener('click', salonesPage)

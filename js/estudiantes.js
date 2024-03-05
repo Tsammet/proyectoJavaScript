@@ -133,7 +133,7 @@ const programaEstudiante = () => {
 
     let opcionesProgramas = '';
     for(const programa of listaProgramas){
-        opcionesProgramas += `<option value = ${programa.id}>${programa.nombre}</options>`
+        opcionesProgramas += `<option value = ${programa.id}>${programa.nombre}</option>`
     }
 
     return opcionesProgramas

@@ -71,6 +71,7 @@ const crearAsignatura = async () => {
         horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
     });
 
+    
 
     const nuevaAsignatura = {
         id: listaAsignaturas.length + 1,
