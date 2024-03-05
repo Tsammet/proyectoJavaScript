@@ -15,6 +15,7 @@ const loadProgramas =  async () => {
     } catch (error) {
         console.error("Error al cargar Programas", error.message)
     }
+
 }
 
 const mostrarListadoProgramas = async () => {

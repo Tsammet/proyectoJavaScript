@@ -12,14 +12,17 @@ const loadDepartamentos =  async () => {
         const departamentos = await respuesta.json();
         listaDepartamentos.push(...departamentos);
 
+
     } catch (error) {
         console.error("Error al cargar Departamentos", error.message)
     }
+
 }
 
 const mostrarListadoDepartamentos = async () => {
 
     await loadDepartamentos();
+
     const listadoDepartamentos = document.getElementById('listado-departamentos');
     listadoDepartamentos.innerHTML = `` 
     const ul = document.createElement('ul');

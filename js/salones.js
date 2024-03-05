@@ -15,6 +15,7 @@ const loadSalones =  async () => {
     } catch (error) {
         console.error("Error al cargar Salones", error.message)
     }
+
 }
 
 const mostrarListadoSalones = async () => {

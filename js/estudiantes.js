@@ -53,7 +53,7 @@ const cargarFormularioEstudiantes = async () => {
         </select>
         
         
-        <button type = "button" onclick = "crearEstudiante()">Agregar Estudiante</button>
+        <button type = "button" id = "botonCrearEstudiante" onclick = "crearEstudiante()">Agregar Estudiante</button>
         <button type = "button" onclick = "mostrarListadoEstudiantes()">Ver los Estudiantes</button>
         
         </form>
@@ -179,7 +179,7 @@ const volverAlFormulario = () => {
 
 }
 
-const loadEstudiantes = async () => {
+const loadEstudiantes = async () => {    
 
     try {
         listaEstudiantes.length = 0;
@@ -193,9 +193,11 @@ const loadEstudiantes = async () => {
         const estudiantes = await respuesta.json();
         listaEstudiantes.push(...estudiantes);
 
+
     } catch (error) {
         console.error("Error al cargar Estudiantes", error.meesage)
     }
+
 }
 
 const guardarEstudiantesJson = async (nuevoEstudiante) => {

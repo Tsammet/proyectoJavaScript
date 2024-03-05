@@ -61,6 +61,7 @@ const mostrarListadoProfesores = async () => {
     volverButton.textContent='Volver al Formulario';
     volverButton.addEventListener('click',volverAlFormularioProfesores);
     listadoProfesores.appendChild(volverButton);
+
 }
 
 const volverAlFormularioProfesores = () => {
@@ -107,7 +108,9 @@ const crearProfesor = async () => {
 
     alert('Profesor Registrado Con Exito! :D');
 
+    
     return nuevoProfesor
+
 
 }
 
@@ -143,6 +146,8 @@ const guardarProfesorJson = async (nuevoProfesor) => {
         console.log("Error al cargar Profesores", error.meesage)
         
     }
+
+    
     
 }
 
@@ -159,7 +164,9 @@ const loadProfesor = async () => {
         const profesores = await respuesta.json();
         listaProfesores.push(...profesores);
 
+
     } catch (error) {
         console.error("Error al cargar Docentes", error.meesage)
     }
+
 }

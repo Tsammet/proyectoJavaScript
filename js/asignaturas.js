@@ -52,6 +52,7 @@ const crearAsignatura = async () => {
     const profesorAsignaturaSelect = document.getElementById('profesorAsignatura')
     const programaAsignaturaSelect = document.getElementById('programaAsignatura')
 
+
     const cursoAsignatura = cursoAsignaturaSelect.value;
     const profesorAsignatura = profesorAsignaturaSelect.value;
     const programaAsignatura = programaAsignaturaSelect.value;
@@ -66,7 +67,8 @@ const crearAsignatura = async () => {
         const diaSemana = horarioInput.querySelector('.diaSemana').value;
         const horaInicio = horarioInput.querySelector('.horaInicio').value;
         const horaFin = horarioInput.querySelector('.horaFin').value;
-        horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin });
+        const salonHora = horarioInput.querySelector('.salonHorarioAsignatura').value;
+        horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
     });
 
 
@@ -127,6 +129,18 @@ const programaAsignatura = () => {
     return programaAsignatura
 }
 
+const salonHorarioPrograma = () => {
+
+    let salonAsignatura = '';
+
+    for (const salon of listaSalones){
+        salonAsignatura +=  `<option value = ${salon.id}>${salon.numero_identificacion}</options>`
+    }
+
+    return salonAsignatura
+
+}
+
 const mostrarListadoAsignaturas = async () => {
 
     const asignaturasForm = document.getElementById('asignaturas-form')
@@ -169,6 +183,7 @@ const volverAlFormularioAsignaturas = () => {
 }
 
 const agregarHorario = () => {
+
     const horariosContainer = document.getElementById('horarios-container');
     const nuevoHorario = document.createElement('div');
     nuevoHorario.classList.add('horario');
@@ -187,8 +202,15 @@ const agregarHorario = () => {
 
         <label for="horaFin">Hora de Finalización:</label>
         <input type="time" class="horaFin" required>
+
+        <label for="salonHorarioAsignatura">Salón:</label>
+        <select class="salonHorarioAsignatura" required>
+            ${salonHorarioPrograma()}
+        </select>
     `;
+
     horariosContainer.appendChild(nuevoHorario);
+
 };
 
 const guardarAsignaturaJson = async (nuevaAsignatura) => {
@@ -229,8 +251,12 @@ const loadAsignaturas = async () => {
         const asignatura = await respuesta.json();
         listaAsignaturas.push(...asignatura);
 
+        
     } catch (error) {
         console.error("Error al cargar Asignatura", error.meesage)
     }
+    
+    return cargarFormularioAsignaturas()
+
 }
 

@@ -16,6 +16,7 @@ const loadCursos = async () => {
     } catch (error) {
         console.error("Error al cargar Cursos", error.message)
     }
+
 }
 
 const mostrarListadoCursos = async () => {

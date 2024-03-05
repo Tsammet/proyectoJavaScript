@@ -32,4 +32,5 @@ const loadPeriodos = async () => {
     } catch (error) {
         console.error("Error al cargar Periodos", error.message)
     }
+
 }

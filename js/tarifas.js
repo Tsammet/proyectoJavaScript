@@ -15,6 +15,7 @@ const loadTarifas =  async () => {
     } catch (error) {
         console.error("Error al cargar Tarifas", error.message)
     }
+
 }
 
 const mostrarListadoTarifas = async () => {
