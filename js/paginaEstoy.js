@@ -9,8 +9,13 @@ const paginaTarifas = document.getElementById('tarifas')
 const paginaCursos = document.getElementById('cursos')
 const paginaMatriculas = document.getElementById('matriculas')
 const paginaMain = document.getElementById('main-page')
+let paginaActual = sessionStorage.getItem("pagina");
+
 
 const mainPage = () => {
+
+    sessionStorage.setItem("pagina", 0);
+
     paginaMain.style.display = "block"
     paginaAsignaturas.style.display = "none";
     paginaDepartamentos.style.display = "none";
@@ -26,6 +31,9 @@ const mainPage = () => {
 }
 
 const asignaturasPage = () => {
+
+    sessionStorage.setItem("pagina", 1);
+
     paginaMain.style.display = "none"
     paginaAsignaturas.style.display = "block";
     paginaDepartamentos.style.display = "none";
@@ -40,6 +48,9 @@ const asignaturasPage = () => {
 }
 
 const departamentosPage = () => {
+
+    sessionStorage.setItem("pagina", 2);
+
     paginaMain.style.display = "none"
     paginaAsignaturas.style.display = "none";
     paginaDepartamentos.style.display = "block";
@@ -54,6 +65,9 @@ const departamentosPage = () => {
 }
 
 const estudiantesPage = () => {
+
+    sessionStorage.setItem("pagina", 3);
+
     paginaMain.style.display = "none"
     paginaAsignaturas.style.display = "none";
     paginaDepartamentos.style.display = "none";
@@ -68,6 +82,9 @@ const estudiantesPage = () => {
 }
 
 const periodosPage = () => {
+
+    sessionStorage.setItem("pagina", 4);
+
     paginaMain.style.display = "none"
     paginaAsignaturas.style.display = "none";
     paginaDepartamentos.style.display = "none";
@@ -81,7 +98,27 @@ const periodosPage = () => {
     paginaMatriculas.style.display = "none"
 }
 
+
+const programasPage = () => {
+
+    sessionStorage.setItem("pagina", 5);
+
+    paginaMain.style.display = "none"
+    paginaAsignaturas.style.display = "none";
+    paginaDepartamentos.style.display = "none";
+    paginaEstudiantes.style.display = "none";
+    paginaPeriodos.style.display = "none";
+    paginaProfesores.style.display = "none";
+    paginaProgramas.style.display = "block";
+    paginaSalones.style.display = "none";
+    paginaTarifas.style.display = "none";
+    paginaCursos.style.display = "none"
+    paginaMatriculas.style.display = "none"
+}
 const profesoresPage = () => {
+
+    sessionStorage.setItem("pagina", 6);
+
     paginaMain.style.display = "none"
     paginaAsignaturas.style.display = "none";
     paginaDepartamentos.style.display = "none";
@@ -95,35 +132,10 @@ const profesoresPage = () => {
     paginaMatriculas.style.display = "none"
 }
 
-const programasPage = () => {
-    paginaMain.style.display = "none"
-    paginaAsignaturas.style.display = "none";
-    paginaDepartamentos.style.display = "none";
-    paginaEstudiantes.style.display = "none";
-    paginaPeriodos.style.display = "none";
-    paginaProfesores.style.display = "none";
-    paginaProgramas.style.display = "block";
-    paginaSalones.style.display = "none";
-    paginaTarifas.style.display = "none";
-    paginaCursos.style.display = "none"
-    paginaMatriculas.style.display = "none"
-}
-
-const salonesPage = () => {
-    paginaMain.style.display = "none"
-    paginaAsignaturas.style.display = "none";
-    paginaDepartamentos.style.display = "none";
-    paginaEstudiantes.style.display = "none";
-    paginaPeriodos.style.display = "none";
-    paginaProfesores.style.display = "none";
-    paginaProgramas.style.display = "none";
-    paginaSalones.style.display = "block";
-    paginaTarifas.style.display = "none";
-    paginaCursos.style.display = "none"
-    paginaMatriculas.style.display = "none"
-}
-
 const tarifasPage = () => {
+
+    sessionStorage.setItem("pagina", 7);
+
     paginaMain.style.display = "none"
     paginaAsignaturas.style.display = "none";
     paginaDepartamentos.style.display = "none";
@@ -137,7 +149,28 @@ const tarifasPage = () => {
     paginaMatriculas.style.display = "none"
 }
 
+const salonesPage = () => {
+
+    sessionStorage.setItem("pagina", 8);
+
+    paginaMain.style.display = "none"
+    paginaAsignaturas.style.display = "none";
+    paginaDepartamentos.style.display = "none";
+    paginaEstudiantes.style.display = "none";
+    paginaPeriodos.style.display = "none";
+    paginaProfesores.style.display = "none";
+    paginaProgramas.style.display = "none";
+    paginaSalones.style.display = "block";
+    paginaTarifas.style.display = "none";
+    paginaCursos.style.display = "none"
+    paginaMatriculas.style.display = "none"
+}
+
+
 const cursosPage = () => {
+
+    sessionStorage.setItem("pagina", 9);
+
     paginaMain.style.display = "none"
     paginaAsignaturas.style.display = "none";
     paginaDepartamentos.style.display = "none";
@@ -151,6 +184,9 @@ const cursosPage = () => {
     paginaMatriculas.style.display = "none"
 }
 const matriculasPage = () => {
+
+    sessionStorage.setItem("pagina", 10);
+
     paginaMain.style.display = "none"
     paginaAsignaturas.style.display = "none";
     paginaDepartamentos.style.display = "none";

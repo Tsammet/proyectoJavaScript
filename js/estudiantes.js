@@ -1,4 +1,4 @@
-// ESTA LÍNEA LA UTILIZO PARA CREAR NUEVOS DATOS Y CARGARLOS 
+// ESTA LÍNEA LA UTILIZO PARA CREAR NUEVOS DATOS Y CARGARLOS
 const listaEstudiantes = []
 
 const cargarFormularioEstudiantes = async () => {
@@ -8,12 +8,12 @@ const cargarFormularioEstudiantes = async () => {
     const estudiantesForm = document.getElementById('estudiantes-form');
     estudiantesForm.innerHTML = `
     <form>
-    
+
         <label for = "nombreEstudiante">Nombres: </label>
-        <input type = "text" id = "nombreEstudiante" required> 
+        <input type = "text" id = "nombreEstudiante" required>
 
         <label for = "apellidosEstudiante">Apellidos: </label>
-        <input type = "text" id = "apellidoEstudiante" required> 
+        <input type = "text" id = "apellidoEstudiante" required>
 
         <label for = "tipoDocumentoEstudiante">Tipo de documento: </label>
         <select type = "select" id = "tipoDocumentoestudiante" required>
@@ -24,19 +24,19 @@ const cargarFormularioEstudiantes = async () => {
         </select>
 
         <label for = "numeroDocumentoEstudiante">Número Documento: </label>
-        <input type = "number" id = "numeroDocumentoEstudiante" required> 
-        
+        <input type = "number" id = "numeroDocumentoEstudiante" required>
+
         <label for = "ciudadResidenciaEstudiante">Ciudad De Residencia: </label>
-        <input type = "text" id = "ciudadResidenciaEstudiante" required> 
+        <input type = "text" id = "ciudadResidenciaEstudiante" required>
 
         <label for = "direccionEstudiante">Dirección: </label>
-        <input type = "text" id = "direccionEstudiante" required> 
+        <input type = "text" id = "direccionEstudiante" required>
 
         <label for = "telefonoEstudiante">Telefono: </label>
-        <input type = "number" id = "telefonoEstudiante" required> 
+        <input type = "number" id = "telefonoEstudiante" required>
 
         <label for = "fechaNacimientoEstudiante">Fecha Nacimiento: </label>
-        <input type = "date" id = "fechaNacimientoEstudiante" required> 
+        <input type = "date" id = "fechaNacimientoEstudiante" required>
 
         <label for = "generoEstudiante">Género: </label>
         <select type = "select" id = "generoEstudiante" required>
@@ -46,27 +46,27 @@ const cargarFormularioEstudiantes = async () => {
                 <option value="otro">Otro</option>
         </select>
 
-        
+
         <label for="programaEstudiante">Programa:</label>
         <select id="programaEstudiante" required>
             ${programaEstudiante()}
         </select>
-        
-        
+
+
         <button type = "button" id = "botonCrearEstudiante" onclick = "crearEstudiante()">Agregar Estudiante</button>
         <button type = "button" onclick = "mostrarListadoEstudiantes()">Ver los Estudiantes</button>
-        
+
         </form>
         `;
-        
+
         const listadoEstudiantes = document.getElementById('listado-estudiantes');
         listadoEstudiantes.style.display = "none"
 
-        
+
     }
 
 const crearEstudiante = async () => {
-    
+
         const nombreEstudianteInput = document.getElementById('nombreEstudiante');
         const apellidoEstudianteInput = document.getElementById('apellidoEstudiante');
         const tipoDocumentoEstudianteInput = document.getElementById('tipoDocumentoestudiante');
@@ -89,9 +89,9 @@ const crearEstudiante = async () => {
         const fechaNacimientoEstudiante = fechaNacimientoEstudianteInput.value;
         const generoEstudiante = generoEstudianteInput.value;
         const programaEstudiante = programaEstudianteSelect.value;
-    
+
         const nuevoEstudiante = {
-    
+
             id: listaEstudiantes.length + 1,
             nombre: nombreEstudiante,
             apellido: apellidoEstudiante,
@@ -103,16 +103,16 @@ const crearEstudiante = async () => {
             fecha_nacimiento: fechaNacimientoEstudiante,
             sexo: generoEstudiante,
             programa_id : programaEstudiante
-    
+
         };
-    
+
         // SE UTILIZA ESTA FUNCIÓN PARA GUARDAR EL NUEVO DEPARTAMENTO
         await guardarEstudiantesJson(nuevoEstudiante);
-    
+
         // se llama esta función pararecargar la lista de departamentos desde el servidor.
         // Esto asegura que la lista de departamentos se actualice cn la que se acabó de crear
         await loadEstudiantes();
-    
+
         nombreEstudianteInput.value = '';
         apellidoEstudianteInput.value = '';
         tipoDocumentoEstudianteInput.value = '';
@@ -122,10 +122,10 @@ const crearEstudiante = async () => {
         telefonoEstudianteInput.value = '';
         fechaNacimientoEstudianteInput.value = '';
         generoEstudianteInput.value = '';
-    
-    
+
+
         alert('Estudiante Registrado Con Exito! :D');
-    
+
         return nuevoEstudiante;
     }
 
@@ -143,7 +143,7 @@ const mostrarListadoEstudiantes = async() => {
     await loadEstudiantes();
     const estudiantesForm = document.getElementById('estudiantes-form');
     const listadoEstudiantes = document.getElementById('listado-estudiantes');
-    
+
     estudiantesForm.style.display = "none";
     listadoEstudiantes.style.display = "block";
 
@@ -151,7 +151,7 @@ const mostrarListadoEstudiantes = async() => {
 
     for (const estudiante of listaEstudiantes){
         const li = document.createElement('li')
-        li.textContent = `ID : ${estudiante.id} Nombre Estudiante: ${estudiante.nombre + " " + estudiante.apellido} 
+        li.textContent = `ID : ${estudiante.id} Nombre Estudiante: ${estudiante.nombre + " " + estudiante.apellido}
         Tipo Documento: ${estudiante.tipo_documento} Numero Documento: ${estudiante.numero_documento} Ciudad Residencia: ${estudiante.ciudad_residencia}
         Direccion: ${estudiante.direccion} Telefono: ${estudiante.telefono} Fecha Nacimiento: ${estudiante.fecha_nacimiento} Genero: ${estudiante.sexo}
         Programa: ${estudiante.programa_id}`
@@ -179,7 +179,7 @@ const volverAlFormulario = () => {
 
 }
 
-const loadEstudiantes = async () => {    
+const loadEstudiantes = async () => {
 
     try {
         listaEstudiantes.length = 0;
@@ -213,12 +213,12 @@ const guardarEstudiantesJson = async (nuevoEstudiante) => {
         if (!respuesta.ok) {
             throw new Error('Error al registrar el estudiante. Estado: ', respuesta.status);
         }
-        
+
         const estudianteCreado = await respuesta.json();
-        
+
         console.log('Estudiante registrado:', estudianteCreado);
-        
-        
+
+
     } catch (error) {
         console.log("Error al cargar Estudiantes", error.meesage)
     }
