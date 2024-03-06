@@ -65,10 +65,39 @@ const crearAsignatura = async () => {
     const horariosInputs = document.querySelectorAll('.horario');
     horariosInputs.forEach(horarioInput => {
         const diaSemana = horarioInput.querySelector('.diaSemana').value;
-        const horaInicio = horarioInput.querySelector('.horaInicio').value;
-        const horaFin = horarioInput.querySelector('.horaFin').value;
         const salonHora = horarioInput.querySelector('.salonHorarioAsignatura').value;
-        horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
+        if(horarioInput.querySelector('.franja-horaria').value === "horario1"){
+            const horaInicio = "6:00 am"
+            const horaFin = "8:00 am"
+
+            horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
+        }else if(horarioInput.querySelector('.franja-horaria').value === "horario2"){
+            const horaInicio = "8:00 am"
+            const horaFin = "10:00 am"
+
+            horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
+        }else if(horarioInput.querySelector('.franja-horaria').value === "horario3"){
+            const horaInicio = "10:00 am"
+            const horaFin = "12:00 pm"
+
+            horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
+        }else if(horarioInput.querySelector('.franja-horaria').value === "horario4"){
+            const horaInicio = "12:00 pm"
+            const horaFin = "2:00 pm"
+
+            horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
+        }
+        else if(horarioInput.querySelector('.franja-horaria').value === "horario5"){
+            const horaInicio = "2:00 pm"
+            const horaFin = "4:00 pm"
+
+            horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
+        }else if(horarioInput.querySelector('.franja-horaria').value === "horario6"){
+            const horaInicio = "4:00 pm"
+            const horaFin = "6:00 pm"
+
+            horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
+        }
     });
 
     
@@ -198,11 +227,15 @@ const agregarHorario = () => {
             <option value="viernes">Viernes</option>
         </select>
 
-        <label for="horaInicio">Hora de Inicio:</label>
-        <input type="time" class="horaInicio" required>
-
-        <label for="horaFin">Hora de Finalización:</label>
-        <input type="time" class="horaFin" required>
+        <label for="franja-horaria">Horario:</label>
+        <select class="franja-horaria" required>
+            <option value = "horario1"> 6:00 am - 8:00 am </option>
+            <option value = "horario2"> 8:00 am - 10:00 pm </option>
+            <option value = "horario3"> 10:00 am - 12:00 pm </option>
+            <option value = "horario4"> 12:00 pm - 2:00 pm </option>
+            <option value = "horario5"> 2:00 pm - 4:00 pm </option>
+            <option value = "horario6"> 4:00 pm - 6:00 pm </option>
+        </select>
 
         <label for="salonHorarioAsignatura">Salón:</label>
         <select class="salonHorarioAsignatura" required>
@@ -260,4 +293,3 @@ const loadAsignaturas = async () => {
     return cargarFormularioAsignaturas()
 
 }
-
