@@ -38,12 +38,13 @@ const cargarFormularioAsignaturas = async () => {
         <button type="button" onclick="agregarHorario()">Agregar Horario</button>
         <button type="button" onclick="crearAsignatura()">Agregar Asignatura</button>
         <button type="button" onclick="mostrarListadoAsignaturas()">Mostrar Asignaturas</button>
-
+        
         </form>
-    `;
-};
+        `;
+    };
+    
 
-const crearAsignatura = async () => {
+    const crearAsignatura = async () => {
 
     const codigoAsignaturaInput = document.getElementById('codigoAsignatura');
     const creditosInput = document.getElementById('creditos');
@@ -60,44 +61,40 @@ const crearAsignatura = async () => {
     const creditos = creditosInput.value;
     const cuposDisponibles = cuposDisponiblesInput.value;
 
-
+    let horaInicio = ""
+    let horaFin = ""
     const horarios = [];
     const horariosInputs = document.querySelectorAll('.horario');
     horariosInputs.forEach(horarioInput => {
         const diaSemana = horarioInput.querySelector('.diaSemana').value;
         const salonHora = horarioInput.querySelector('.salonHorarioAsignatura').value;
         if(horarioInput.querySelector('.franja-horaria').value === "horario1"){
-            const horaInicio = "6:00 am"
-            const horaFin = "8:00 am"
+            horaInicio = "6:00 am"
+            horaFin = "8:00 am"
 
-            horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
         }else if(horarioInput.querySelector('.franja-horaria').value === "horario2"){
-            const horaInicio = "8:00 am"
-            const horaFin = "10:00 am"
+            horaInicio = "8:00 am"
+            horaFin = "10:00 am"
 
-            horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
         }else if(horarioInput.querySelector('.franja-horaria').value === "horario3"){
-            const horaInicio = "10:00 am"
-            const horaFin = "12:00 pm"
+            horaInicio = "10:00 am"
+            horaFin = "12:00 pm"
 
-            horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
         }else if(horarioInput.querySelector('.franja-horaria').value === "horario4"){
-            const horaInicio = "12:00 pm"
-            const horaFin = "2:00 pm"
+             horaInicio = "12:00 pm"
+             horaFin = "2:00 pm"
 
-            horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
         }
         else if(horarioInput.querySelector('.franja-horaria').value === "horario5"){
-            const horaInicio = "2:00 pm"
-            const horaFin = "4:00 pm"
+             horaInicio = "2:00 pm"
+             horaFin = "4:00 pm"
 
-            horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
         }else if(horarioInput.querySelector('.franja-horaria').value === "horario6"){
-            const horaInicio = "4:00 pm"
-            const horaFin = "6:00 pm"
+             horaInicio = "4:00 pm"
+             horaFin = "6:00 pm"
 
-            horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
         }
+        horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
     });
 
     

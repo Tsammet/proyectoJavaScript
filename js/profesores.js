@@ -9,7 +9,7 @@ const cargarFormularioProfesores = async () => {
     <form>
 
         <label for = "tipoDocumento" >Tipo Documento: </label>
-        <select type = "select" id = "tipoDocumento" required>
+        <select      id = "tipoDocumento" required>
             <option value="">Selecciona un tipo de documento</option>
             <option value="CC">Cédula Cidadana</option>
             <option value="Pasaporte">Pasaporte</option>
