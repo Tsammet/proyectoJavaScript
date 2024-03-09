@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     await loadMatriculas();
     cargarFormularioMatriculas();
 
+    cargarInformes()
+
 
 
 if (parseInt(paginaActual) == null) {
@@ -88,5 +90,9 @@ if (parseInt(paginaActual) == 9) {
 if (parseInt(paginaActual) == 10) {
 
     matriculasPage();
+  } 
+if (parseInt(paginaActual) == 11) {
+
+    informesPage();
   } 
 })

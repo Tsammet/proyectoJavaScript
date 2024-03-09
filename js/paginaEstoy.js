@@ -9,6 +9,7 @@ const paginaTarifas = document.getElementById('tarifas')
 const paginaCursos = document.getElementById('cursos')
 const paginaMatriculas = document.getElementById('matriculas')
 const paginaMain = document.getElementById('main-page')
+const paginaInformes = document.getElementById('informes')
 let paginaActual = sessionStorage.getItem("pagina");
 
 
@@ -27,6 +28,8 @@ const mainPage = () => {
     paginaTarifas.style.display = "none";
     paginaCursos.style.display = "none"
     paginaMatriculas.style.display = "none"
+    paginaInformes.style.display = "none"
+
     
 }
 
@@ -45,6 +48,8 @@ const asignaturasPage = () => {
     paginaTarifas.style.display = "none";
     paginaCursos.style.display = "none"
     paginaMatriculas.style.display = "none"
+    paginaInformes.style.display = "none"
+
 }
 
 const departamentosPage = () => {
@@ -62,6 +67,8 @@ const departamentosPage = () => {
     paginaCursos.style.display = "none"
     paginaTarifas.style.display = "none";
     paginaMatriculas.style.display = "none"
+    paginaInformes.style.display = "none"
+
 }
 
 const estudiantesPage = () => {
@@ -79,6 +86,8 @@ const estudiantesPage = () => {
     paginaTarifas.style.display = "none";
     paginaCursos.style.display = "none"
     paginaMatriculas.style.display = "none"
+    paginaInformes.style.display = "none"
+
 }
 
 const periodosPage = () => {
@@ -96,6 +105,8 @@ const periodosPage = () => {
     paginaTarifas.style.display = "none";
     paginaCursos.style.display = "none"
     paginaMatriculas.style.display = "none"
+    paginaInformes.style.display = "none"
+
 }
 
 
@@ -114,6 +125,8 @@ const programasPage = () => {
     paginaTarifas.style.display = "none";
     paginaCursos.style.display = "none"
     paginaMatriculas.style.display = "none"
+    paginaInformes.style.display = "none"
+
 }
 const profesoresPage = () => {
 
@@ -130,6 +143,8 @@ const profesoresPage = () => {
     paginaCursos.style.display = "none"
     paginaTarifas.style.display = "none";
     paginaMatriculas.style.display = "none"
+    paginaInformes.style.display = "none"
+
 }
 
 const tarifasPage = () => {
@@ -147,6 +162,8 @@ const tarifasPage = () => {
     paginaCursos.style.display = "none"
     paginaTarifas.style.display = "block";
     paginaMatriculas.style.display = "none"
+    paginaInformes.style.display = "none"
+
 }
 
 const salonesPage = () => {
@@ -164,6 +181,8 @@ const salonesPage = () => {
     paginaTarifas.style.display = "none";
     paginaCursos.style.display = "none"
     paginaMatriculas.style.display = "none"
+    paginaInformes.style.display = "none"
+
 }
 
 
@@ -182,6 +201,8 @@ const cursosPage = () => {
     paginaTarifas.style.display = "none";
     paginaCursos.style.display = "block"
     paginaMatriculas.style.display = "none"
+    paginaInformes.style.display = "none"
+
 }
 const matriculasPage = () => {
 
@@ -198,6 +219,26 @@ const matriculasPage = () => {
     paginaTarifas.style.display = "none";
     paginaCursos.style.display = "none"
     paginaMatriculas.style.display = "block"
+    paginaInformes.style.display = "none"
+
+}
+
+const informesPage = () => {
+
+    sessionStorage.setItem("pagina", 11);
+
+    paginaMain.style.display = "none"
+    paginaAsignaturas.style.display = "none";
+    paginaDepartamentos.style.display = "none";
+    paginaEstudiantes.style.display = "none";
+    paginaPeriodos.style.display = "none";
+    paginaProfesores.style.display = "none";
+    paginaProgramas.style.display = "none";
+    paginaSalones.style.display = "none";
+    paginaTarifas.style.display = "none";
+    paginaCursos.style.display = "none"
+    paginaMatriculas.style.display = "none"
+    paginaInformes.style.display = "block"
 }
 
 const funcionPaginas = () => {
@@ -230,6 +271,9 @@ const funcionPaginas = () => {
 
     const matriculasNavLink = document.getElementById('matriculasNav');
     matriculasNavLink.addEventListener('click' ,matriculasPage)
+
+    const informesNavLink = document.getElementById('informesNav');
+    informesNavLink.addEventListener('click', informesPage)
 
     const salonesNavLink = document.getElementById('salonesNav');
     salonesNavLink.addEventListener('click', salonesPage)

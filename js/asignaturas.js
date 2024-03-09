@@ -96,8 +96,34 @@ const cargarFormularioAsignaturas = async () => {
         }
         horarios.push({ dia: diaSemana, hora_inicio: horaInicio, hora_fin: horaFin, salon_id : salonHora });
     });
-
     
+    for (const asignatura of listaAsignaturas) {
+        for (const horario of asignatura.horario_clases) {
+            for (const nuevoHorario of horarios) {
+
+                if (horario.dia === nuevoHorario.dia && horario.salon_id === nuevoHorario.salon_id) {
+                    
+                    const horaInicioAsignatura = parseInt(horario.hora_inicio.split(':')[0]);
+                    const minutosInicioAsignatura = parseInt(horario.hora_inicio.split(':')[1]);
+                    const horaFinAsignatura = parseInt(horario.hora_fin.split(':')[0]);
+                    const minutosFinAsignatura = parseInt(horario.hora_fin.split(':')[1]);
+        
+                    const horaInicioNuevo = parseInt(nuevoHorario.hora_inicio.split(':')[0]);
+                    const minutosInicioNuevo = parseInt(nuevoHorario.hora_inicio.split(':')[1]);
+                    const horaFinNuevo = parseInt(nuevoHorario.hora_fin.split(':')[0]);
+                    const minutosFinNuevo = parseInt(nuevoHorario.hora_fin.split(':')[1]);
+        
+                    // Comparar las horas y minutos
+                    if ((horaInicioNuevo * 60 + minutosInicioNuevo >= horaInicioAsignatura * 60 + minutosInicioAsignatura && horaInicioNuevo * 60 + minutosInicioNuevo < horaFinAsignatura * 60 + minutosFinAsignatura) ||
+                        (horaFinNuevo * 60 + minutosFinNuevo > horaInicioAsignatura * 60 + minutosInicioAsignatura && horaFinNuevo * 60 + minutosFinNuevo <= horaFinAsignatura * 60 + minutosFinAsignatura)) {
+                        // Horarios se cruzan, mostrar mensaje de error y evitar la creación de la asignatura
+                        alert('El horario seleccionado se cruza con otra asignatura existente en el mismo salón.');
+                        return;
+                    }
+                }
+            }
+        }
+    }
 
     const nuevaAsignatura = {
         id: listaAsignaturas.length + 1,
@@ -182,7 +208,7 @@ const mostrarListadoAsignaturas = async () => {
         const li = document.createElement('li');
         li.textContent = `ID: ${asignatura.id} Código: ${asignatura.codigo} Creditos: ${asignatura.creditos}
         cupos Disponibles: ${asignatura.cupos_disponibles}`
-        const horarioInfo = asignatura.horario_clases.map(horario => ` DÍA : ${horario.dia} HORA INICIO: ${horario.hora_inicio} HORA FIN: ${horario.hora_fin}`);
+        const horarioInfo = asignatura.horario_clases.map(horario => ` DÍA : ${horario.dia} HORA INICIO: ${horario.hora_inicio} HORA FIN: ${horario.hora_fin} SALON: ${horario.salon_id}` );
         const horarioElement = document.createElement('p');
         horarioElement.textContent = `Horario: ${horarioInfo}`;
         li.appendChild(horarioElement);

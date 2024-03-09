@@ -2,6 +2,12 @@
   "periodos": [
     {
       "id": "1",
+      "codigo": "P23-02",
+      "ano": 2023,
+      "semestre": 2
+    },
+    {
+      "id": "2",
       "codigo": "P24-01",
       "ano": 2024,
       "semestre": 1
@@ -22,7 +28,7 @@
   "tarifas": [
     {
       "id": "1",
-      "costo_credito": 1000,
+      "costo_credito": 1500,
       "periodo_id": 1,
       "programa_id": 1
     },
@@ -59,6 +65,14 @@
       "nombre": "María",
       "apellido": "Gómez",
       "departamento_id": 2
+    },
+    {
+      "id": 3,
+      "tipo_documento": "",
+      "numero_documento": "",
+      "nombre": "",
+      "apellido": "",
+      "departamento_id": "1"
     }
   ],
   "alumnos": [
@@ -110,6 +124,13 @@
       "edificio": "Edificio A",
       "piso": 2,
       "numero_identificacion": "S001"
+    },
+    {
+      "id": "2",
+      "capacidad_alumnos": 30,
+      "edificio": "Edificio A",
+      "piso": 2,
+      "numero_identificacion": "S0sss02"
     }
   ],
   "asignaturas": [
@@ -158,22 +179,50 @@
           "salon_id": 1
         }
       ]
+    },
+    {
+      "id": "3",
+      "curso_id": "1",
+      "codigo": "",
+      "creditos": "",
+      "profesor_id": "1",
+      "cupos_disponibles": "",
+      "programa_id": "1",
+      "horario_clases": []
+    },
+    {
+      "id": 4,
+      "curso_id": "1",
+      "codigo": "s",
+      "creditos": "",
+      "profesor_id": "1",
+      "cupos_disponibles": "",
+      "programa_id": "1",
+      "horario_clases": [
+        {
+          "dia": "lunes",
+          "hora_inicio": "6:00 am",
+          "hora_fin": "8:00 am",
+          "salon_id": "2"
+        },
+        {
+          "dia": "lunes",
+          "hora_inicio": "6:00 am",
+          "hora_fin": "8:00 am",
+          "salon_id": "1"
+        }
+      ]
     }
   ],
   "matriculas": [
     {
       "id": "1",
       "estudiante_id": 1,
-      "asignatura_id": 1,
+      "asignaturas": [
+        "2"
+      ],
       "periodo_id": 1,
       "precio": 4000
-    },
-    {
-      "id": "1",
-      "estudiante_id": 1,
-      "asignatura_id": 2,
-      "periodo_id": 1,
-      "precio": 3300
     }
   ]
 }

@@ -12,18 +12,18 @@ const cargarFormularioMatriculas = async () => {
             ${estudianteMatricula()}        
        </select>
 
-       <label for = "asignatura_id">Asignatura ID </label>
-       <select type = "select" id = "asignatura_id" required>
-            ${asignaturaMatricula()}
-       </select>
+       <div id = "asignaturas-container">
+       </div>
+
 
        <label for = "periodo_id">Periodo ID </label>
        <select type = "select" id = "periodo_id" required>
             ${periodoMatricula()}
        </select>
 
-       <label for = "precio"> Precio </label>
-       <input type = "number" id = "precio" required>
+       <button type="button" onclick="crearMatricula()">Crear Matricula</button>
+       <button type="button" onclick="mostrarListadoMatriculas()">Mostrar Matricula</button>
+       <button type="button" onclick="agregarAsignatura()">Agregar asignatura</button>
 
 
     </form>
@@ -54,20 +54,43 @@ const loadMatriculas = async () => {
 const mostrarListadoMatriculas = async () => {
     await loadMatriculas();
     const listadoMatriculas = document.getElementById('listado-matriculas');
+    const matriculasForm = document.getElementById('matriculas-form');
+
+    matriculasForm.style.display = "none";
+    listadoMatriculas.style.display = "block";
+
     listadoMatriculas.innerHTML = ''
 
     const ul = document.createElement('ul');
 
     for (const matricula of listaMatriculas){
         const li = document.createElement('li');
-        li.textContent = `ID: ${matricula.id} Estudiante ID: ${matricula.estudiante_id} Asignatura ID: ${matricula.asignatura_id}
+        li.textContent = `ID: ${matricula.id} Estudiante ID: ${matricula.estudiante_id} Asignatura ID: ${matricula.asignaturas}
         , Periodo ID: ${matricula.periodo_id}, Precio ${matricula.precio}`
         ul.appendChild(li)
     }
 
     listadoMatriculas.appendChild(ul)
 
+
+    const volverButton=document.createElement('button');
+    volverButton.textContent='Volver al Formulario';
+    volverButton.addEventListener('click',volverAlFormularioMatriculas);
+    listadoMatriculas.appendChild(volverButton);
+
+
 }
+
+const volverAlFormularioMatriculas = () => {
+
+    const matriculasForm = document.getElementById('matriculas-form');
+    const listadoMatriculas = document.getElementById('listado-matriculas');
+
+    matriculasForm.style.display = "block";
+    listadoMatriculas.style.display = "none";
+
+}
+
 
 const estudianteMatricula = () => {
 
@@ -100,7 +123,7 @@ const periodoMatricula = () => {
     let opcionesPeriodo = '';
 
     for (const periodo of listaPeriodos){
-        opcionesPeriodo += `<option value = ${periodo.id}"> ${periodo.codigo}</option>`
+        opcionesPeriodo += `<option value = ${periodo.id}> ${periodo.codigo}</option>`
     }
 
     return opcionesPeriodo
@@ -109,31 +132,98 @@ const periodoMatricula = () => {
 const crearMatricula = async () => {
 
     const estudianteIdInput = document.getElementById('estudiante_id')
-    const asignaturaIdInput = document.getElementById('asignatura_id')
     const periodoIdInput = document.getElementById('periodo_id')
-    const precioInput = document.getElementById('precio')
 
     const estudianteId = estudianteIdInput.value;
-    const asignaturaId = asignaturaIdInput.value;
     const periodoId = periodoIdInput.value;
-    const precio = precioInput.value;
+
+
+    const asignaturas  = [];
+    const asignaturasInput = document.querySelectorAll('.asignaturaClass');
+    asignaturasInput.forEach(asignaturaInput => {
+        const asignaturaIdInput = asignaturaInput.value;
+        asignaturas.push(asignaturaIdInput)
+    })
+
+    
+    let precioMatricula = 0;
+
+    asignaturas.forEach(asignatura_id => {
+        const asignatura = listaAsignaturas.find((element) => element.id === asignatura_id)
+        const tarifaAsignatura = listaTarifas.find((tarifa) => tarifa.programa_id === asignatura.programa_id &&
+        tarifa.periodo_id === parseInt(periodoId))
+        const precioAsignatura = tarifaAsignatura.costo_credito * asignatura.creditos 
+        precioMatricula += precioAsignatura
+    });
+
 
     const nuevaMatricula = {
         id : listaMatriculas.length + 1,
         estudiante_id : estudianteId,
-        asignatura_id : asignaturaId,
+        asignaturas : asignaturas,
         periodo_id : periodoId,
-        precio : precio
+        precio : precioMatricula
 
     }
 
+    await guardarMatriculaJson(nuevaMatricula)
+    await loadMatriculas()
+
     estudianteIdInput.value = '';
-    asignaturaIdInput.value = '';
     periodoIdInput.value = '';
-    precioInput.value = '';
+    asignaturasInput.forEach(asignaturaInput => {
+    asignaturaInput.value = '';
+});
+
+
 
     alert('Matricula Registrada con Exito! :D')
 
     return nuevaMatricula
     
 }
+
+const guardarMatriculaJson = async (nuevaMatricula) => {
+
+    try {
+        const respuesta = await fetch('http://localhost:3000/matriculas', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(nuevaMatricula),
+        });
+
+        if (!respuesta.ok) {
+            throw new Error('Error al registrar el matriculas. Estado: ', respuesta.status);
+        }
+        const matriculaCreada = await respuesta.json();
+
+        console.log('Matricula registrado:', matriculaCreada);
+
+
+    } catch (error) {
+        console.log("Error al cargar Matriculas", error.meesage)
+        
+    }
+    
+    
+}
+
+
+const agregarAsignatura = () => {
+
+    const asignaturasContainer = document.getElementById('asignaturas-container');
+    const nuevaAsignatura = document.createElement('div');
+    nuevaAsignatura.classList.add('asignatura');
+    nuevaAsignatura.innerHTML = `
+    <label for = "asignaturaClass">Asignatura ID </label>
+    <select type = "select" class = "asignaturaClass" required>
+         ${asignaturaMatricula()}
+    </select>
+    `;
+
+    asignaturasContainer.appendChild(nuevaAsignatura);
+
+};
+
