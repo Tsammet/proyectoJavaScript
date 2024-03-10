@@ -41,6 +41,10 @@ const cargarFormularioAsignaturas = async () => {
         
         </form>
         `;
+
+        
+    const listadoAsignaturas = document.getElementById('listado-asignaturas');
+    listadoAsignaturas.style.display = "none"
     };
     
 
@@ -195,34 +199,49 @@ const salonHorarioPrograma = () => {
 }
 
 const mostrarListadoAsignaturas = async () => {
-
+    
     const asignaturasForm = document.getElementById('asignaturas-form')
     const listadoAsignaturas = document.getElementById('listado-asignaturas')
 
     asignaturasForm.style.display = "none";
     listadoAsignaturas.style.display = "block";
 
-    const ul = document.createElement('ul');
 
+    const tablaAsignaturas = document.getElementById('tablaAsignaturas')
+    tablaAsignaturas.innerHTML = `` 
+    
     for (const asignatura of listaAsignaturas) {
-        const li = document.createElement('li');
-        li.textContent = `ID: ${asignatura.id} Código: ${asignatura.codigo} Creditos: ${asignatura.creditos}
-        cupos Disponibles: ${asignatura.cupos_disponibles}`
-        const horarioInfo = asignatura.horario_clases.map(horario => ` DÍA : ${horario.dia} HORA INICIO: ${horario.hora_inicio} HORA FIN: ${horario.hora_fin} SALON: ${horario.salon_id}` );
-        const horarioElement = document.createElement('p');
-        horarioElement.textContent = `Horario: ${horarioInfo}`;
-        li.appendChild(horarioElement);
-        ul.appendChild(li)
+        const tr = document.createElement('tr');
+
+        tr.innerHTML = `
+        <td>${asignatura.id}</td>
+        <td>${asignatura.curso_id}</td>
+        <td>${asignatura.codigo}</td>            
+        <td>${asignatura.creditos}</td>
+        <td>${asignatura.profesor_id}</td>
+        <td>${asignatura.cupos_disponibles}</td>            
+        <td>${asignatura.programa_id}</td>            
+        `
+        const horarioInfo = asignatura.horario_clases.map(horario => `DÍA: ${horario.dia} HORA INICIO: ${horario.hora_inicio} HORA FIN: ${horario.hora_fin} SALÓN: ${horario.salon_id}`).join('<br>');
+        const horarioElement = document.createElement('td');
+        horarioElement.innerHTML = horarioInfo;
+
+
+        tr.appendChild(horarioElement);
+        tablaAsignaturas.appendChild(tr)
     }
 
-    listadoAsignaturas.innerHTML = '';
-    listadoAsignaturas.appendChild(ul)
 
-    const volverButton = document.createElement('button');
-    volverButton.textContent = 'Volver al Formulario';
-    volverButton.addEventListener('click', volverAlFormularioAsignaturas);
-    listadoAsignaturas.appendChild(volverButton);
+    
+    const existingButton = listadoAsignaturas.querySelector('#volverButton');
+    if (!existingButton) {
 
+        const volverButton = document.createElement('button');
+        volverButton.textContent = 'Volver al Formulario';
+        volverButton.id = 'volverButton'
+        volverButton.addEventListener('click', volverAlFormularioAsignaturas);
+        listadoAsignaturas.appendChild(volverButton);
+    }
 }
 
 const volverAlFormularioAsignaturas = () => {

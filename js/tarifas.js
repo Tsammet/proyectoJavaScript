@@ -21,16 +21,22 @@ const loadTarifas =  async () => {
 const mostrarListadoTarifas = async () => {
 
     await loadTarifas();
-    const listadoTarifas = document.getElementById('listado-tarifas');
-    listadoTarifas.innerHTML = `` 
-    const ul = document.createElement('ul');
+    const tablaTarifas = document.getElementById('tablaTarifas');
+    tablaTarifas.innerHTML = `` 
 
     for (const tarifa of listaTarifas){
-        const li = document.createElement('li');
-        li.textContent = `ID: ${tarifa.id} Costo Credito: ${tarifa.costo_credito} Periodo: ${tarifa.periodo_id}, Programa ${tarifa.programa_id}`
-        ul.appendChild(li)
+        const tr = document.createElement('tr');
+
+        tr.innerHTML = `
+        <td>${tarifa.id}</td>
+        <td>${tarifa.costo_credito}</td>
+        <td>${tarifa.periodo_id}</td>
+        <td>${tarifa.programa_id}</td>
+    `;
+
+        tablaTarifas.appendChild(tr)
+
     }
 
-    listadoTarifas.appendChild(ul)
 
 }

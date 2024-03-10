@@ -23,16 +23,17 @@ const mostrarListadoDepartamentos = async () => {
 
     await loadDepartamentos();
 
-    const listadoDepartamentos = document.getElementById('listado-departamentos');
-    listadoDepartamentos.innerHTML = `` 
-    const ul = document.createElement('ul');
+    const tablaDeptos = document.getElementById('tablaDeptos');
+    tablaDeptos.innerHTML = `` 
 
     for (const departamento of listaDepartamentos){
-        const li = document.createElement('li');
-        li.textContent = `ID: ${departamento.id} Nombre Departamento: ${departamento.nombre}`
-        ul.appendChild(li)
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${departamento.id}</td>
+            <td>${departamento.nombre}</td>
+        `;
+        tablaDeptos.appendChild(tr);
     }
 
-    listadoDepartamentos.appendChild(ul)
 
 }

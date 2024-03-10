@@ -147,25 +147,40 @@ const mostrarListadoEstudiantes = async() => {
     estudiantesForm.style.display = "none";
     listadoEstudiantes.style.display = "block";
 
-    const ul = document.createElement('ul')
+    const tablaEstudiantes = document.getElementById('tablaEstudiantes')
+    tablaEstudiantes.innerHTML = `` 
+
 
     for (const estudiante of listaEstudiantes){
-        const li = document.createElement('li')
-        li.textContent = `ID : ${estudiante.id} Nombre Estudiante: ${estudiante.nombre + " " + estudiante.apellido}
-        Tipo Documento: ${estudiante.tipo_documento} Numero Documento: ${estudiante.numero_documento} Ciudad Residencia: ${estudiante.ciudad_residencia}
-        Direccion: ${estudiante.direccion} Telefono: ${estudiante.telefono} Fecha Nacimiento: ${estudiante.fecha_nacimiento} Genero: ${estudiante.sexo}
-        Programa: ${estudiante.programa_id}`
-        ul.appendChild(li)
+        const tr = document.createElement('tr')
+
+        tr.innerHTML = `
+        <td>${estudiante.id}</td>
+        <td>${estudiante.nombre}</td>            
+        <td>${estudiante.tipo_documento}</td>
+        <td>${estudiante.numero_documento}</td>            
+        <td>${estudiante.ciudad_residencia}</td>
+        <td>${estudiante.direccion}</td>            
+        <td>${estudiante.telefono}</td>
+        <td>${estudiante.fecha_nacimiento}</td>
+        <td>${estudiante.sexo}</td>
+        <td>${estudiante.programa_id}</td>
+        `
+
+        
+        tablaEstudiantes.appendChild(tr)
     }
 
-    listadoEstudiantes.innerHTML = '';
-    listadoEstudiantes.appendChild(ul);
 
-    const volverButton=document.createElement('button');
-    volverButton.textContent='Volver al Formulario';
-    volverButton.addEventListener('click',volverAlFormulario);
-    listadoEstudiantes.appendChild(volverButton);
+    const existingButton = listadoEstudiantes.querySelector('#volverButton');
+    if (!existingButton) {
 
+        const volverButton=document.createElement('button');
+        volverButton.textContent='Volver al Formulario';
+        volverButton.id = 'volverButton'
+        volverButton.addEventListener('click',volverAlFormulario);
+        listadoEstudiantes.appendChild(volverButton);
+    }
 
 }
 

@@ -21,17 +21,20 @@ const loadCursos = async () => {
 
 const mostrarListadoCursos = async () => {
     await loadCursos();
-    const listadoCursos = document.getElementById('listado-cursos');
-    listadoCursos.innerHTML = ''
-
-    const ul = document.createElement('ul');
+    const tablaCursos = document.getElementById('tablaCursos');
+    tablaCursos.innerHTML = ''
 
     for (const curso of listaCursos){
-        const li = document.createElement('li');
-        li.textContent = `ID: ${curso.id} Nombre: ${curso.nombre} Código: ${curso.codigo}, Guia Catedra: ${curso.guia_catedra}`
-        ul.appendChild(li)
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+
+            <td>${curso.id}</td>
+            <td>${curso.nombre}</td>
+            <td>${curso.codigo}</td>
+            <td>${curso.guia_catedra}</td>
+        `;
+        tablaCursos.appendChild(tr)
     }
 
-    listadoCursos.appendChild(ul)
 
 }

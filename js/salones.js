@@ -21,16 +21,20 @@ const loadSalones =  async () => {
 const mostrarListadoSalones = async () => {
 
     await loadSalones();
-    const listadoSalones = document.getElementById('listado-salones');
-    listadoSalones.innerHTML = `` 
-    const ul = document.createElement('ul');
+    const tablaSalones = document.getElementById('tablaSalones');
+    tablaSalones.innerHTML = `` 
 
     for (const salon of listaSalones){
-        const li = document.createElement('li');
-        li.textContent = `ID: ${salon.id} Capacidad Alumnos: ${salon.capacidad_alunmons} Edificio: ${salon.edificio}, Piso: ${salon.piso} No_Identificación: ${salon.numero_identificacion}`
-        ul.appendChild(li)
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${salon.id}</td>
+            <td>${salon.capacidad_alumnos}</td>
+            <td>${salon.edificio}</td>
+            <td>${salon.piso}</td>
+            <td>${salon.numero_identificacion}</td>
+            `
+        tablaSalones.appendChild(tr)
     }
 
-    listadoSalones.appendChild(ul)
 
 }

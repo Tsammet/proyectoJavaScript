@@ -2,17 +2,23 @@ const listaPeriodos = [];
 
 const mostrarListadoPeriodos = async () => {
     await loadPeriodos();
-    const listadoPeriodos = document.getElementById('listado-periodos');
-    listadoPeriodos.innerHTML = ''
-    const ul = document.createElement('ul');
+
+    const tablaPeriodos = document.getElementById('tablaPeriodos');
+
+    tablaPeriodos.innerHTML = ''
 
     for (const periodo of listaPeriodos){
-        const li = document.createElement('li');
-        li.textContent = `ID: ${periodo.id} codigo: ${periodo.codigo} Año: ${periodo.ano}, Semestre: ${periodo.semestre}`
-        ul.appendChild(li)
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+        <td>${periodo.id}</td>
+        <td>${periodo.codigo}</td>
+        <td>${periodo.ano}</td>
+        <td>${periodo.semestre}</td>
+    `;
+      
+    tablaPeriodos.appendChild(tr)
     }
 
-    listadoPeriodos.appendChild(ul)
 
 }
 

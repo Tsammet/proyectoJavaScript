@@ -14,13 +14,12 @@
 
     <section id="navbar">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
 
                 <a class="navbar-brand" href="#">
-                    <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-                    Bootstrap
-                  </a>
+                    <span> UNIVERSIDAD DE LOS SABIOS</span>
+                </a>
 
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
@@ -30,25 +29,17 @@
                             <a class="nav-link active" aria-current="page" id="main-pageNav">Pág Principal</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" id="asignaturasNav">Asignaturas</a>
-                        </li>
+
 
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" id="departamentosNav">Departamentos</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" id="estudiantesNav">Estudiantes</a>
-                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" id="periodosNav">Periodos</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" id="profesoresNav">Profesores</a>
-                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" id="programasNav">Programas</a>
@@ -64,6 +55,18 @@
 
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" id="tarifasNav">Tarifas</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" id="estudiantesNav">Estudiantes</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" id="profesoresNav">Profesores</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" id="asignaturasNav">Asignaturas</a>
                         </li>
 
                         <li class="nav-item">
@@ -90,65 +93,257 @@
         <section id="estudiantes">
             <h2>Módulo de Estudiantes</h2>
             <div id="estudiantes-form"></div>
-            <div id="listado-estudiantes"></div>
+            <div id="listado-estudiantes">
+                <div id="tablaEstudiantesContainer" class="table-container">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Tipo Doc</th>
+                                <th scope="col">No Documento</th>
+                                <th scope="col">Ciudad</th>
+                                <th scope="col">Dirección</th>
+                                <th scope="col">Telefono</th>
+                                <th scope="col">Fecha Nacimiento</th>
+                                <th scope="col">Sexo</th>
+                                <th scope="col">Programa Id</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaEstudiantes">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </section>
+
 
         <section id="profesores">
             <h2>Módulo de Profesores</h2>
             <div id="profesores-form"></div>
-            <div id="listado-profesores"></div>
+            <div id="listado-profesores">
+                <div id="tablaProfesoresContainer" class="table-container">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Tipo Doc</th>
+                                <th scope="col">No Documento</th>
+                                <th scope="col">Departamento</th>
+                                <th scope="col">Nombre</th>
+                 
+                            </tr>
+                        </thead>
+                        <tbody id="tablaProfesores">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="periodos">
+            <h2>Módulo de Periodos</h2>
+            <div id="listado-periodos">
+                <div id="tablaPeriodosContainer" class="table-container">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Codigo</th>
+                                <th scope="col">Año</th>
+                                <th scope="col">Semestre</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaPeriodos">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="programas">
+            <h2>Módulo de Programas</h2>
+            <div id="listado-programas">
+                <div id="tablaProgramasContainer" class="table-container">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Nivel</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="tablaProgramas">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="tarifas">
+            <h2>Módulo de Tarifas</h2>1
+            <div id="listado-tarifas">
+                <div id="tablaTarifasContainer" class="table-container">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+
+                                <th scope="col">Id </th>
+                                <th scope="col">Costo Credito </th>
+                                <th scope="col">Periodo </th>
+                                <th scope="col">Programa</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="tablaTarifas">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="departamentos">
+            <h2>Módulo de Departamentos</h2>
+            <div id="listado-departamentos">
+                <div id="tablaDeptosContainer" class="table-container">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Nombre del Departamento</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaDeptos">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="cursos">
+            <h2>Módulo de Cursos</h2>
+            <div id="listado-cursos">
+                <div id="tablaCursosContainer" class="table-container">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+
+                                <th scope="col">Id </th>
+                                <th scope="col">Nombre </th>
+                                <th scope="col">Código </th>
+                                <th scope="col">Guia De La Catedra </th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="tablaCursos">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="salones">
+            <h2>Módulo de Salones</h2>
+            <div id="listado-salones">
+                <div id="tablaSalonesContainer" class="table-container">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+
+                                <th scope="col">Id </th>
+                                <th scope="col">Capacidad Alumnos </th>
+                                <th scope="col">Edificio </th>
+                                <th scope="col">Piso </th>
+                                <th scope="col">No Identificación </th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="tablaSalones">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </section>
 
         <section id="asignaturas">
             <h2>Módulo de Asignaturas</h2>
             <div id="asignaturas-form"></div>
-            <div id="listado-asignaturas"></div>
-            <div></div>
-        </section>
+            <div id="listado-asignaturas">
+                <div id="tablaAsignaturasContainer" class="table-container">
 
-        <section id="periodos">
-            <h2>Módulo de Periodos</h2>
-            <div id="listado-periodos"></div>
-        </section>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Curso</th>
+                                <th scope="col">Codigo</th>
+                                <th scope="col">Creditos</th>
+                                <th scope="col">Profesor Id</th>
+                                <th scope="col">Cupos Disponibles</th>
+                                <th scope="col">Programa Id</th>
+                                <th scope="col">HORARIO</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaAsignaturas">
 
-        <section id="programas">
-            <h2>Módulo de Programas</h2>
-            <div id="listado-programas"></div>
-        </section>
-
-        <section id="tarifas">
-            <h2>Módulo de Tarifas</h2>
-            <div id="listado-tarifas"></div>
-        </section>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         
-        <section id="departamentos">
-            <h2>Módulo de Departamentos</h2>
-            <div id="listado-departamentos"></div>
-        </section>
-
-        <section id="cursos">
-            <h2>Módulo de Cursos</h2>
-            <div id="listado-cursos"></div>
-        </section>
-
-        <section id="salones">
-            <h2>Módulo de Salones</h2>
-            <div id="listado-salones"></div>
         </section>
 
         <section id="matriculas">
             <h2>Módulo de Matriculas</h2>
             <div id="matriculas-form"></div>
-            <div id="listado-matriculas"></div>
+            <div id="listado-matriculas">
+                <div id="tablaMatriculasContainer" class="table-container">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">EstudianteId</th>
+                                <th scope="col">Asignaturas</th>
+                                <th scope="col">periodoId</th>
+                                <th scope="col">Precio</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody id="tablaMatriculas">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </section>
 
         <section id="informes">
             <h2>Módulo de Informes</h2>
             <div id="botonesInformes"></div>
-            <div id = "asignaturaMasMatriculada"></div>
-            <div id = "costoTotalxPer"></div>
-        
-        
+            <div id="asignaturaMasMatriculada"></div>
+            <div id="costoTotalxPer"></div>
+
+
         </section>
 
     </main>

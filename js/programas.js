@@ -1,6 +1,6 @@
 const listaProgramas = []
 
-const loadProgramas =  async () => {
+const loadProgramas = async () => {
     try {
         listaProgramas.length = 0;
         const respuesta = await fetch('http://localhost:3000/programas');
@@ -21,16 +21,19 @@ const loadProgramas =  async () => {
 const mostrarListadoProgramas = async () => {
 
     await loadProgramas();
-    const listadoProgramas = document.getElementById('listado-programas');
-    listadoProgramas.innerHTML = `` 
-    const ul = document.createElement('ul');
+    const tablaProgramas = document.getElementById('tablaProgramas');
+    tablaProgramas.innerHTML = ``
 
-    for (const programa of listaProgramas){
-        const li = document.createElement('li');
-        li.textContent = `ID: ${programa.id} Nombre: ${programa.nombre} Nivel: ${programa.nivel}`
-        ul.appendChild(li)
+    for (const programa of listaProgramas) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${programa.id}</td>
+            <td>${programa.nombre}</td>
+            <td>${programa.nivel}</td>
+        `
+
+        tablaProgramas.appendChild(tr)
     }
 
-    listadoProgramas.appendChild(ul)
 
 }

@@ -53,7 +53,7 @@
     {
       "id": "1",
       "tipo_documento": "CC",
-      "numero_documetno": "13788555",
+      "numero_documento": "13788555",
       "nombre": "Juan",
       "apellido": "Pérez",
       "departamento_id": 1
@@ -61,18 +61,10 @@
     {
       "id": "2",
       "tipo_documento": "CC",
-      "numero_documetno": "137880000",
+      "numero_documento": "137880000",
       "nombre": "María",
       "apellido": "Gómez",
       "departamento_id": 2
-    },
-    {
-      "id": 3,
-      "tipo_documento": "",
-      "numero_documento": "",
-      "nombre": "",
-      "apellido": "",
-      "departamento_id": "1"
     }
   ],
   "alumnos": [
@@ -130,7 +122,7 @@
       "capacidad_alumnos": 30,
       "edificio": "Edificio A",
       "piso": 2,
-      "numero_identificacion": "S0sss02"
+      "numero_identificacion": "S002"
     }
   ],
   "asignaturas": [
@@ -179,40 +171,8 @@
           "salon_id": 1
         }
       ]
-    },
-    {
-      "id": "3",
-      "curso_id": "1",
-      "codigo": "",
-      "creditos": "",
-      "profesor_id": "1",
-      "cupos_disponibles": "",
-      "programa_id": "1",
-      "horario_clases": []
-    },
-    {
-      "id": 4,
-      "curso_id": "1",
-      "codigo": "s",
-      "creditos": "",
-      "profesor_id": "1",
-      "cupos_disponibles": "",
-      "programa_id": "1",
-      "horario_clases": [
-        {
-          "dia": "lunes",
-          "hora_inicio": "6:00 am",
-          "hora_fin": "8:00 am",
-          "salon_id": "2"
-        },
-        {
-          "dia": "lunes",
-          "hora_inicio": "6:00 am",
-          "hora_fin": "8:00 am",
-          "salon_id": "1"
-        }
-      ]
     }
+ 
   ],
   "matriculas": [
     {

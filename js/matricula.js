@@ -28,6 +28,11 @@ const cargarFormularioMatriculas = async () => {
 
     </form>
     `
+
+    
+    const listadoMatriculas = document.getElementById('listado-matriculas');
+    listadoMatriculas.style.display = "none"
+
 }
 
 
@@ -59,24 +64,34 @@ const mostrarListadoMatriculas = async () => {
     matriculasForm.style.display = "none";
     listadoMatriculas.style.display = "block";
 
-    listadoMatriculas.innerHTML = ''
+    const tablaMatriculas = document.getElementById('tablaMatriculas')
+    tablaMatriculas.innerHTML = `` 
 
-    const ul = document.createElement('ul');
 
     for (const matricula of listaMatriculas){
-        const li = document.createElement('li');
-        li.textContent = `ID: ${matricula.id} Estudiante ID: ${matricula.estudiante_id} Asignatura ID: ${matricula.asignaturas}
-        , Periodo ID: ${matricula.periodo_id}, Precio ${matricula.precio}`
-        ul.appendChild(li)
+        const tr = document.createElement('tr');
+
+        tr.innerHTML = `
+        <td>${matricula.id}</td>
+        <td>${matricula.estudiante_id}</td>            
+        <td>${matricula.asignaturas}</td>
+        <td>${matricula.periodo_id}</td>            
+        <td>${matricula.precio}</td>
+    
+        `
+        tablaMatriculas.appendChild(tr)
     }
 
-    listadoMatriculas.appendChild(ul)
+    const existingButton = listadoMatriculas.querySelector('#volverButton');
+    if (!existingButton) {
 
 
-    const volverButton=document.createElement('button');
-    volverButton.textContent='Volver al Formulario';
-    volverButton.addEventListener('click',volverAlFormularioMatriculas);
-    listadoMatriculas.appendChild(volverButton);
+        const volverButton=document.createElement('button');
+        volverButton.textContent='Volver al Formulario';
+        volverButton.id = 'volverButton'
+        volverButton.addEventListener('click',volverAlFormularioMatriculas);
+        listadoMatriculas.appendChild(volverButton);
+    }
 
 
 }

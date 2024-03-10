@@ -35,6 +35,9 @@ const cargarFormularioProfesores = async () => {
 
     </form>
     `;
+
+    const listadoProfesores = document.getElementById('listado-profesores');
+    listadoProfesores.style.display = "none"
 }
 
 const mostrarListadoProfesores = async () => {
@@ -45,22 +48,35 @@ const mostrarListadoProfesores = async () => {
     profesoresForm.style.display = "none";
     listadoProfesores.style.display = "block";
 
-    const ul = document.createElement('ul');
+    const tablaProfesoresC = document.getElementById('tablaProfesores')
+    tablaProfesoresC.innerHTML = `` 
+
 
     for (const profesor of listaProfesores){
-        const li = document.createElement('li');
-        li.textContent = `ID: ${profesor.id} Nombres: ${profesor.nombre + " " + profesor.apellido}
-        Tipo Documento: ${profesor.tipo_documento} Número Documento: ${profesor.numero_documento} Departamento ID: ${profesor.departamento_id}`
-        ul.appendChild(li)
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${profesor.id}</td>
+            <td>${profesor.tipo_documento}</td>
+            <td>${profesor.numero_documento}</td>            
+            <td>${profesor.departamento_id}</td>            
+            <td>${profesor.nombre}</td>            
+       
+        `
+
+        tablaProfesoresC.appendChild(tr)
+        
     }
 
-    listadoProfesores.innerHTML = '';
-    listadoProfesores.appendChild(ul)
 
-    const volverButton=document.createElement('button');
-    volverButton.textContent='Volver al Formulario';
-    volverButton.addEventListener('click',volverAlFormularioProfesores);
-    listadoProfesores.appendChild(volverButton);
+    const existingButton = listadoProfesores.querySelector('#volverButton');
+    if (!existingButton) {
+        // Si no existe, agregar uno nuevo
+        const volverButton = document.createElement('button');
+        volverButton.textContent = 'Volver al Formulario';
+        volverButton.id = 'volverButton';
+        volverButton.addEventListener('click', volverAlFormularioProfesores);
+        listadoProfesores.appendChild(volverButton);
+    }
 
 }
 
