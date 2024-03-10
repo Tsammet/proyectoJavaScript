@@ -7,6 +7,13 @@ const cargarFormularioMatriculas = async () => {
     const matriculasForm = document.getElementById('matriculas-form');
     matriculasForm.innerHTML = `
     <form>
+
+    <div id="matriculas-form-container">
+    <div id="matriculas-formulario">
+
+    <h1> Nueva Matricula </h1>
+
+    
         <label for = "estudiante_id">Estudiante ID </label>
         <select  id = "estudiante_id" required>
             ${estudianteMatricula()}        

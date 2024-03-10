@@ -7,32 +7,38 @@ const cargarFormularioProfesores = async () => {
     const profesoresForm = document.getElementById('profesores-form');
     profesoresForm.innerHTML = `
     <form>
+    <div id="profesores-form-container">
+        <div id="profesores-formulario">
 
-        <label for = "tipoDocumento" >Tipo Documento: </label>
-        <select      id = "tipoDocumento" required>
-            <option value="">Selecciona un tipo de documento</option>
-            <option value="CC">Cédula Cidadana</option>
-            <option value="Pasaporte">Pasaporte</option>
-            <option value="Carnet de identidad">Carnet de identidad</option>
-        </select>
+            <h1> Nuevo Docente </h1>
 
-        <label for = "numeroDocumento">Número Documento: </label>
-        <input type = "number" id = "numeroDocumento" required> 
+            <label for = "tipoDocumento" >Tipo Documento: </label>
 
-        <label for = "nombreProfesor">Nombres: </label>
-        <input type = "text" id = "nombreProfesor" required> 
+            <select      id = "tipoDocumento" required>
+                <option value="">Selecciona un tipo de documento</option>
+                <option value="CC">Cédula Cidadana</option>
+                <option value="Pasaporte">Pasaporte</option>
+                <option value="Carnet de identidad">Carnet de identidad</option>
+            </select>
 
-        <label for = "apellidosProfesor">Apellidos: </label>
-        <input type = "text" id = "apellidoProfesor" required> 
+            <label for = "numeroDocumento">Número Documento: </label>
+            <input type = "number" id = "numeroDocumento" required> 
 
-        <label for="departamentoProfesor">Departamento:</label>
-            <select id="departamentoProfesor" required>
-            ${departamentoProfesor()}
-        </select>
+            <label for = "nombreProfesor">Nombres: </label>
+            <input type = "text" id = "nombreProfesor" required> 
 
-        <button type = "button" onclick = "crearProfesor()">Agregar Docente</button>
-        <button type = "button" onclick = "mostrarListadoProfesores()">Mostrar Docentes</button>
+            <label for = "apellidosProfesor">Apellidos: </label>
+            <input type = "text" id = "apellidoProfesor" required> 
 
+            <label for="departamentoProfesor">Departamento:</label>
+                <select id="departamentoProfesor" required>
+                ${departamentoProfesor()}
+            </select>
+
+            <button type = "button" onclick = "crearProfesor()">Agregar Docente</button>
+            <button type = "button" onclick = "mostrarListadoProfesores()">Mostrar Docentes</button>
+        </div>
+    </div>
     </form>
     `;
 
@@ -49,10 +55,10 @@ const mostrarListadoProfesores = async () => {
     listadoProfesores.style.display = "block";
 
     const tablaProfesoresC = document.getElementById('tablaProfesores')
-    tablaProfesoresC.innerHTML = `` 
+    tablaProfesoresC.innerHTML = ``
 
 
-    for (const profesor of listaProfesores){
+    for (const profesor of listaProfesores) {
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>${profesor.id}</td>
@@ -64,7 +70,7 @@ const mostrarListadoProfesores = async () => {
         `
 
         tablaProfesoresC.appendChild(tr)
-        
+
     }
 
 
@@ -111,7 +117,7 @@ const crearProfesor = async () => {
         numero_documento: numeroDocumento,
         nombre: nombreProfesor,
         apellido: apellidoProfesor,
-        departamento_id : departamentoProfesor,
+        departamento_id: departamentoProfesor,
     }
 
     await guardarProfesorJson(nuevoProfesor);
@@ -124,7 +130,7 @@ const crearProfesor = async () => {
 
     alert('Profesor Registrado Con Exito! :D');
 
-    
+
     return nuevoProfesor
 
 
@@ -132,7 +138,7 @@ const crearProfesor = async () => {
 
 const departamentoProfesor = () => {
     let opcionesDepartamento = '';
-    for(const departamento of listaDepartamentos){
+    for (const departamento of listaDepartamentos) {
         opcionesDepartamento += `<option value = ${departamento.id}>${departamento.nombre}</options>`
     }
 
@@ -160,11 +166,11 @@ const guardarProfesorJson = async (nuevoProfesor) => {
 
     } catch (error) {
         console.log("Error al cargar Profesores", error.meesage)
-        
+
     }
 
-    
-    
+
+
 }
 
 const loadProfesor = async () => {

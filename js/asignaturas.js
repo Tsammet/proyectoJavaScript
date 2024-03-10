@@ -8,6 +8,12 @@ const cargarFormularioAsignaturas = async () => {
     formularioAsignaturas.innerHTML = `
     <form>
 
+    <div id="asignaturas-form-container">
+        <div id="asignaturas-formulario">
+
+        <h1> Nueva Asignatura </h1>
+
+
         <label for="cursoAsignatura">Curso:</label>
         <select id="cursoAsignatura" required>
             ${cursoAsignatura()}

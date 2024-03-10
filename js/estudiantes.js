@@ -9,6 +9,11 @@ const cargarFormularioEstudiantes = async () => {
     estudiantesForm.innerHTML = `
     <form>
 
+    <div id="estudiantes-form-container">
+        <div id="estudiantes-formulario">
+
+        <h1> Nuevo Estudiante </h1>
+
         <label for = "nombreEstudiante">Nombres: </label>
         <input type = "text" id = "nombreEstudiante" required>
 
@@ -55,7 +60,8 @@ const cargarFormularioEstudiantes = async () => {
 
         <button type = "button" id = "botonCrearEstudiante" onclick = "crearEstudiante()">Agregar Estudiante</button>
         <button type = "button" onclick = "mostrarListadoEstudiantes()">Ver los Estudiantes</button>
-
+    </div>
+    </div>
         </form>
         `;
 
