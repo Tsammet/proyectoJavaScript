@@ -162,10 +162,15 @@ const crearMatricula = async () => {
 
     const asignaturas  = [];
     const asignaturasInput = document.querySelectorAll('.asignaturaClass');
-    asignaturasInput.forEach(asignaturaInput => {
+    
+    for (const asignaturaInput of asignaturasInput) {
         const asignaturaIdInput = asignaturaInput.value;
-        asignaturas.push(asignaturaIdInput)
-    })
+        if (asignaturas.includes(asignaturaIdInput)) {
+            alert("Esta Matricula no se puede registrar debido a que estás registrando dos veces la misma asignatura");
+            return;
+        }
+        asignaturas.push(asignaturaIdInput);
+    }
 
     
     let precioMatricula = 0;

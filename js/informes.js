@@ -5,6 +5,7 @@ const cargarInformes = () => {
     informes.innerHTML = `
     <form>
 
+    <button type = "button" onclick = "mostrarHorarioEstudiante()">Mostrar Horario Estudiante</button>
     <button type = "button" onclick = "mostrarAsignaturaMasMatriculada()">Asignatura Más Matriculada</button>
     <button type = "button" onclick = "mostrarCostoTotalxPeriodo()">Total Por Periodo</button>
     
@@ -76,14 +77,17 @@ const volverBotones = () => {
     const botonesDeLosInformes = document.getElementById('botonesInformes')
     const masMatriculada = document.getElementById('asignaturaMasMatriculada')
     const costoTotalPeriodo = document.getElementById('costoTotalxPer')
+    const horarioxEstudiante = document.getElementById('horarioxEstudiante')
 
 
     botonesDeLosInformes.style.display = "block";
     masMatriculada.style.display = "none"
     costoTotalPeriodo.style.display = "none"
+    horarioxEstudiante.style.display = "none"
 
     costoTotalPeriodo.innerHTML = "";
     masMatriculada.innerHTML = "";
+    horarioxEstudiante.innerHTML = "";
 
 }
 
@@ -114,7 +118,7 @@ const mostrarCostoTotalxPeriodo = () => {
     let mostrarResultadoCosto = costoTotalPeriodo.querySelector('.costoTotal');
 
   
-    if (!mostrarResultadoCosto) { // Verifica si ya existe un elemento de resultado
+    if (!mostrarResultadoCosto) { 
         botonesDeLosInformes.style.display = "none";
         costoTotalPeriodo.style.display = "block";
 
@@ -151,4 +155,46 @@ const periodoParaCosto = () => {
     }
 
     return opcionesPeriodo
+}
+
+const mostrarHorarioEstudiante = () => {
+
+    const botonesDeLosInformes = document.getElementById('botonesInformes')
+    const horarioxEstudiante = document.getElementById('horarioxEstudiante')
+
+    botonesDeLosInformes.style.display = "none";
+    horarioxEstudiante.style.display = "block";
+
+    const mostrarhorarioxEstudiante = document.createElement('div')
+    mostrarhorarioxEstudiante.classList.add('horarioEstudiante')
+
+    mostrarhorarioxEstudiante.innerHTML = `
+    <label for = "horario_estudiante">Estudiante ID </label>
+    <select type = "select" id = "horario_estudiante" required>
+            ${estudianteParaHorario()}
+    </select>
+    
+    <button type = "button" onclick = "costoTotalMatriculasPorPeriodo()">Mostrar Horarios</button>
+
+    `;
+
+    horarioxEstudiante.appendChild(mostrarhorarioxEstudiante)
+
+
+    const volverButton = document.createElement('button');
+    volverButton.textContent = 'Volver a los Informes';
+    volverButton.addEventListener('click', volverBotones);
+    horarioxEstudiante.appendChild(volverButton);
+}
+
+const estudianteParaHorario = () => {
+
+    let opcionesEstudiante = '';
+
+    for (const estudiante of listaEstudiantes){
+        opcionesEstudiante += `<option value = ${estudiante.id}> ${estudiante.nombre}</option>`
+    }
+
+    return opcionesEstudiante
+
 }
