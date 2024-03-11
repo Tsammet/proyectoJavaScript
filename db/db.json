@@ -457,6 +457,14 @@
       "nombre": "CarloS",
       "apellido": "Sánchez",
       "departamento_id": "5"
+    },
+    {
+      "id": 32,
+      "tipo_documento": "",
+      "numero_documento": "23213213",
+      "nombre": "carlos",
+      "apellido": "diaz",
+      "departamento_id": "3"
     }
   ],
   "alumnos": [
@@ -862,6 +870,19 @@
       "fecha_nacimiento": "2024-03-01",
       "sexo": "masculino",
       "programa_id": "6"
+    },
+    {
+      "id": 32,
+      "nombre": "SILVIA",
+      "apellido": "ANGARITA",
+      "tipo_documento": "CC",
+      "numero_documento": "2421421",
+      "ciudad_residencia": "ASDAS",
+      "direccion": "SDA",
+      "telefono": "21521521",
+      "fecha_nacimiento": "2024-03-11",
+      "sexo": "femenino",
+      "programa_id": "4"
     }
   ],
   "cursos": [

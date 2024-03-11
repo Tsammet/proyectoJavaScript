@@ -171,7 +171,7 @@
 #tablaEstudiantes-container{
     
     width: 60vw;
-    height: 250vh;
+    height: 180vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -184,7 +184,7 @@
 #tablaProfesores-container{
 
     width: 60vw;
-    height: 180vh;
+    height: 150vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -196,7 +196,7 @@
 #tablaAsignaturas-container{
 
     width: 60vw;
-    height: 450vh;
+    height: 250vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -208,7 +208,7 @@
 #tablaMatriculas-container{
 
     width: 60vw;
-    height: 290vh;
+    height: 240vh;
     display: flex;
     align-items: center;
     justify-content: center;
