@@ -17,30 +17,51 @@ const cargarInformes = () => {
 
 const asignaturaMasMatriculada = () => {
 
-    let maximoContador = 0
-    let materiaMasMatriculada = ''
+
+    let maximoContadorPer1 = 0
+    let maximoContadorPer2 = 0
+    let materiaMasMatriculadaPer1 = ''
+    let materiaMasMatriculadaPer2 = ''
+
+    const periodo1 = 1
+    const periodo2 = 2
+
+    const contadorAsignaturasPer1 = {}
+    const contadorAsignaturasPer2 = {}
 
     listaAsignaturas.forEach(asignatura => {
-
-        let countAsignatura = 0
-
-        listaMatriculas.forEach(matricula => {
-
-            if (matricula.asignaturas.includes(asignatura.id)) {
-                countAsignatura ++
-            }
-        })
-
-        if (countAsignatura > maximoContador) {
-            maximoContador = countAsignatura
-            materiaMasMatriculada = asignatura.id
-        }
-
+        contadorAsignaturasPer1[asignatura.id] = 0
+        contadorAsignaturasPer2[asignatura.id] = 0
     })
 
-    return materiaMasMatriculada
-    
-    
+    listaMatriculas.forEach(matricula => {
+        if (matricula.periodo_id === periodo1) {
+            matricula.asignaturas.forEach(asignatura => {
+                contadorAsignaturasPer1[asignatura]++
+                if (contadorAsignaturasPer1[asignatura] > maximoContadorPer1) {
+                    maximoContadorPer1 = contadorAsignaturasPer1[asignatura]
+                    materiaMasMatriculadaPer1 = asignatura
+                }
+            })
+        } else if (matricula.periodo_id === periodo2) {
+            matricula.asignaturas.forEach(asignatura => {
+                contadorAsignaturasPer2[asignatura]++
+                if (contadorAsignaturasPer2[asignatura] > maximoContadorPer2) {
+                    maximoContadorPer2 = contadorAsignaturasPer2[asignatura]
+                    materiaMasMatriculadaPer2 = asignatura
+                }
+            })
+        }
+    })
+
+    return {
+        materiaMasMatriculadaPer1: materiaMasMatriculadaPer1,
+        contadorPer1: maximoContadorPer1,
+        materiaMasMatriculadaPer2: materiaMasMatriculadaPer2,
+        contadorPer2: maximoContadorPer2
+    }
+
+
 }
 
 const mostrarAsignaturaMasMatriculada = () => {
@@ -55,11 +76,15 @@ const mostrarAsignaturaMasMatriculada = () => {
         botonesDeLosInformes.style.display = "none";
         masMatriculada.style.display = "block"
 
+        const asignaturasMasMatriculadas = asignaturaMasMatriculada();
+
+
         const mostrarResultado = document.createElement('div')
         mostrarResultado.classList.add('matriMasMatriculada')
 
         mostrarResultado.innerHTML = `
-            <h1> la asignatura mas matriculada tiene el ID : ${asignaturaMasMatriculada()} </h1>
+            <h1> la asignatura mas matriculada del periodo1 tiene el ID : ${asignaturasMasMatriculadas.materiaMasMatriculadaPer1} </h1>
+            <h1> la asignatura mas matriculada del periodo2 tiene el ID : ${asignaturasMasMatriculadas.materiaMasMatriculadaPer2} </h1>
         `;
 
         masMatriculada.appendChild(mostrarResultado)
@@ -117,8 +142,8 @@ const mostrarCostoTotalxPeriodo = () => {
     const costoTotalPeriodo = document.getElementById('costoTotalxPer')
     let mostrarResultadoCosto = costoTotalPeriodo.querySelector('.costoTotal');
 
-  
-    if (!mostrarResultadoCosto) { 
+
+    if (!mostrarResultadoCosto) {
         botonesDeLosInformes.style.display = "none";
         costoTotalPeriodo.style.display = "block";
 
@@ -150,7 +175,7 @@ const periodoParaCosto = () => {
 
     let opcionesPeriodo = '';
 
-    for (const periodo of listaPeriodos){
+    for (const periodo of listaPeriodos) {
         opcionesPeriodo += `<option value = ${periodo.id}> ${periodo.codigo}</option>`
     }
 
@@ -197,7 +222,7 @@ const estudianteParaHorario = () => {
 
     let opcionesEstudiante = '';
 
-    for (const estudiante of listaEstudiantes){
+    for (const estudiante of listaEstudiantes) {
         opcionesEstudiante += `<option value = ${estudiante.id}> ${estudiante.nombre}</option>`
     }
 
@@ -206,10 +231,10 @@ const estudianteParaHorario = () => {
 }
 
 const periodoParaHorario = () => {
-    
+
     let opcionesPeriodo = '';
 
-    for (const periodo of listaPeriodos){
+    for (const periodo of listaPeriodos) {
         opcionesPeriodo += `<option value = ${periodo.id}> ${periodo.codigo}</option>`
     }
 
@@ -229,30 +254,30 @@ const horarioEstudiante = () => {
     console.log(estudianteId + "ESTUDIANTE ID")
 
     const matricula = listaMatriculas.find((elementoMatricula) => elementoMatricula.estudiante_id === estudianteId &&
-    elementoMatricula.periodo_id === parseInt(periodoId))
+        elementoMatricula.periodo_id === parseInt(periodoId))
 
 
-    if(matricula){
+    if (matricula) {
         const asignaturasMatriculadas = []
-        
+
         matricula.asignaturas.forEach(asignaturaId => {
-            
-        const asignatura = listaAsignaturas.find((elementoAsignatura) => asignaturaId === elementoAsignatura.id)
-        asignaturasMatriculadas.push(asignatura)
-    });
-        
-    asignaturasMatriculadas.forEach(asignaturaHorario => {
-        asignaturaHorario.horario_clases.forEach(horario => {
-            alert(`Código de la asignatura: ${asignaturaHorario.codigo} 
+
+            const asignatura = listaAsignaturas.find((elementoAsignatura) => asignaturaId === elementoAsignatura.id)
+            asignaturasMatriculadas.push(asignatura)
+        });
+
+        asignaturasMatriculadas.forEach(asignaturaHorario => {
+            asignaturaHorario.horario_clases.forEach(horario => {
+                alert(`Código de la asignatura: ${asignaturaHorario.codigo} 
             Periodo: ${periodoId}
             Estudiante: ${estudianteId}
             Día: ${horario.dia}
             Horario: ${horario.hora_inicio} - ${horario.hora_fin}
             Salón: ${horario.salon_id}`);
-        })
-        console.log(periodoId + "aaaaaaaaaaaa")
-    });
+            })
+            console.log(periodoId + "aaaaaaaaaaaa")
+        });
     } else {
-    alert("No se encontró matrícula para el estudiante y período seleccionados.");
-}
+        alert("No se encontró matrícula para el estudiante y período seleccionados.");
+    }
 }
