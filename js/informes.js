@@ -169,18 +169,19 @@ const mostrarHorarioEstudiante = () => {
     mostrarhorarioxEstudiante.classList.add('horarioEstudiante')
 
     mostrarhorarioxEstudiante.innerHTML = `
-    <label for = "estudiante_id">Estudiante ID </label>
-    <select type = "select" id = "estudiante_id" required>
+    <form>
+    <label for = "estudiantex">Estudiante ID </label>
+    <select  id = "estudiantex" required>
             ${estudianteParaHorario()}
     </select>
     
-    <label for = "periodo_id">Periodo ID </label>
-    <select type = "select" id = "periodo_id" required>
+    <label for = "periodox">Periodo ID </label>
+    <select  id = "periodox" required>
             ${periodoParaHorario()}
     </select>
     
     <button type = "button" onclick = "horarioEstudiante()">Mostrar Horarios</button>
-
+    </form>
     `;
 
     horarioxEstudiante.appendChild(mostrarhorarioxEstudiante)
@@ -218,13 +219,16 @@ const periodoParaHorario = () => {
 
 const horarioEstudiante = () => {
 
-    const estudianteInput = document.getElementById('estudiante_id')
+    const estudianteInput = document.getElementById('estudiantex')
     const estudianteId = estudianteInput.value;
 
-    const periodoInput = document.getElementById('periodo_id')
+    const periodoInput = document.getElementById('periodox')
     const periodoId = periodoInput.value;
 
-    const matricula = listaMatriculas.find((elementoMatricula) => elementoMatricula.estudiante_id === parseInt(estudianteId) &&
+    console.log(periodoId + "PERIODO ID")
+    console.log(estudianteId + "ESTUDIANTE ID")
+
+    const matricula = listaMatriculas.find((elementoMatricula) => elementoMatricula.estudiante_id === estudianteId &&
     elementoMatricula.periodo_id === parseInt(periodoId))
 
 
@@ -234,17 +238,19 @@ const horarioEstudiante = () => {
         matricula.asignaturas.forEach(asignaturaId => {
             
         const asignatura = listaAsignaturas.find((elementoAsignatura) => asignaturaId === elementoAsignatura.id)
-            
         asignaturasMatriculadas.push(asignatura)
-        });
+    });
         
     asignaturasMatriculadas.forEach(asignaturaHorario => {
         asignaturaHorario.horario_clases.forEach(horario => {
             alert(`Código de la asignatura: ${asignaturaHorario.codigo} 
+            Periodo: ${periodoId}
+            Estudiante: ${estudianteId}
             Día: ${horario.dia}
             Horario: ${horario.hora_inicio} - ${horario.hora_fin}
             Salón: ${horario.salon_id}`);
         })
+        console.log(periodoId + "aaaaaaaaaaaa")
     });
     } else {
     alert("No se encontró matrícula para el estudiante y período seleccionados.");

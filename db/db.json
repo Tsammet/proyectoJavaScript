@@ -1119,14 +1119,14 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "08:00",
-          "hora_fin": "10:00",
+          "hora_inicio": "06:00",
+          "hora_fin": "8:00",
           "salon_id": 1
         },
         {
           "dia": "Martes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "8:00",
+          "hora_fin": "10:00",
           "salon_id": 1
         }
       ]
@@ -1148,8 +1148,8 @@
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "12:00",
+          "hora_fin": "2:00",
           "salon_id": 1
         }
       ]
@@ -1165,14 +1165,14 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "2:00",
+          "hora_fin": "4:00",
           "salon_id": 1
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "4:00",
+          "hora_fin": "6:00",
           "salon_id": 1
         }
       ]
@@ -1188,14 +1188,14 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "6:00",
+          "hora_fin": "8:00",
           "salon_id": 1
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "8:00",
+          "hora_fin": "10:00",
           "salon_id": 1
         }
       ]
@@ -1217,8 +1217,8 @@
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "12:00",
+          "hora_fin": "2:00",
           "salon_id": 1
         }
       ]
@@ -1234,14 +1234,14 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "2:00",
+          "hora_fin": "4:00",
           "salon_id": 1
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "4:00",
+          "hora_fin": "6:00",
           "salon_id": 1
         }
       ]
@@ -1257,14 +1257,14 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "6:00",
+          "hora_fin": "8:00",
           "salon_id": 1
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "8:00",
+          "hora_fin": "10:00",
           "salon_id": 1
         }
       ]
@@ -1286,8 +1286,8 @@
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "12:00",
+          "hora_fin": "2:00",
           "salon_id": 1
         }
       ]
@@ -1303,14 +1303,14 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "12:00",
+          "hora_fin": "2:00",
           "salon_id": 1
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "2:00",
+          "hora_fin": "4:00",
           "salon_id": 1
         }
       ]
@@ -1326,14 +1326,14 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "4:00",
+          "hora_fin": "6:00",
           "salon_id": 1
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "6:00",
+          "hora_fin": "8:00",
           "salon_id": 1
         }
       ]
@@ -1349,8 +1349,8 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "8:00",
+          "hora_fin": "10:00",
           "salon_id": 1
         },
         {
@@ -1372,14 +1372,14 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "12:00",
+          "hora_fin": "2:00",
           "salon_id": 1
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "2:00",
+          "hora_fin": "4:00",
           "salon_id": 1
         }
       ]
@@ -1395,14 +1395,14 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "4:00",
+          "hora_fin": "6:00",
           "salon_id": 1
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "6:00",
+          "hora_fin": "8:00",
           "salon_id": 1
         }
       ]
@@ -1418,8 +1418,8 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "8:00",
+          "hora_fin": "10:00",
           "salon_id": 1
         },
         {
@@ -1441,14 +1441,14 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "12:00",
+          "hora_fin": "2:00",
           "salon_id": 1
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "4:00",
+          "hora_fin": "6:00",
           "salon_id": 1
         }
       ]
@@ -1464,8 +1464,8 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "6:00",
+          "hora_fin": "8:00",
           "salon_id": 1
         },
         {
@@ -1487,8 +1487,8 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "8:00",
+          "hora_fin": "10:00",
           "salon_id": 1
         },
         {
@@ -1510,14 +1510,14 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "12:00",
+          "hora_fin": "2:00",
           "salon_id": 1
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "2:00",
+          "hora_fin": "4:00",
           "salon_id": 1
         }
       ]
@@ -1533,8 +1533,8 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "4:00",
+          "hora_fin": "6:00",
           "salon_id": 1
         },
         {
@@ -1556,14 +1556,14 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "6:00",
+          "hora_fin": "8:00",
           "salon_id": 1
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "8:00",
+          "hora_fin": "10:00",
           "salon_id": 1
         }
       ]
@@ -1585,8 +1585,8 @@
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "12:00",
+          "hora_fin": "2:00",
           "salon_id": 1
         }
       ]
@@ -1602,14 +1602,14 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "2:00",
+          "hora_fin": "4:00",
           "salon_id": 1
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "4:00",
+          "hora_fin": "6:00",
           "salon_id": 1
         }
       ]
@@ -1625,14 +1625,14 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "6:00",
+          "hora_fin": "8:00",
           "salon_id": 1
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "8:00",
+          "hora_fin": "10:00",
           "salon_id": 1
         }
       ]
@@ -1654,8 +1654,8 @@
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "12:00",
+          "hora_fin": "2:00",
           "salon_id": 1
         }
       ]
@@ -1671,8 +1671,8 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "2:00",
+          "hora_fin": "4:00",
           "salon_id": 1
         },
         {
@@ -1694,14 +1694,14 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "12:00",
+          "hora_fin": "2:00",
           "salon_id": 1
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "2:00",
+          "hora_fin": "4:00",
           "salon_id": 1
         }
       ]
@@ -1717,14 +1717,14 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "4:00",
+          "hora_fin": "6:00",
           "salon_id": 1
         },
         {
           "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "6:00",
+          "hora_fin": "8:00",
           "salon_id": 1
         }
       ]
@@ -1740,8 +1740,8 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "8:00",
+          "hora_fin": "10:00",
           "salon_id": 1
         },
         {
@@ -1763,8 +1763,8 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "12:00",
+          "hora_fin": "2:00",
           "salon_id": 1
         },
         {
@@ -1786,8 +1786,8 @@
       "horario_clases": [
         {
           "dia": "Lunes",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
+          "hora_inicio": "12:00",
+          "hora_fin": "4:00",
           "salon_id": 1
         },
         {
@@ -1810,17 +1810,17 @@
       "precio": 4000
     },
     {
-      "id": 2,
+      "id": "2",
       "estudiante_id": "6",
       "asignaturas": [
-        "18",
+        "2",
         "20"
       ],
       "periodo_id": 1,
       "precio": 6600
     },
     {
-      "id": 3,
+      "id": "3",
       "estudiante_id": "2",
       "asignaturas": [
         "4",
@@ -1831,7 +1831,7 @@
       "precio": 9900
     },
     {
-      "id": 4,
+      "id": "4",
       "estudiante_id": "3",
       "asignaturas": [
         "1",
@@ -1841,7 +1841,7 @@
       "precio": 9300
     },
     {
-      "id": 5,
+      "id": "5",
       "estudiante_id": "4",
       "asignaturas": [
         "6",
@@ -1851,7 +1851,7 @@
       "precio": 6600
     },
     {
-      "id": 6,
+      "id": "6",
       "estudiante_id": "5",
       "asignaturas": [
         "30",
@@ -1861,7 +1861,7 @@
       "precio": 6600
     },
     {
-      "id": 7,
+      "id": "7",
       "estudiante_id": "5",
       "asignaturas": [
         "9",
@@ -1871,7 +1871,7 @@
       "precio": 6600
     },
     {
-      "id": 8,
+      "id": "8",
       "estudiante_id": "7",
       "asignaturas": [
         "22",
@@ -1881,7 +1881,7 @@
       "precio": 9300
     },
     {
-      "id": 9,
+      "id": "9",
       "estudiante_id": "9",
       "asignaturas": [
         "7",
@@ -1891,7 +1891,7 @@
       "precio": 6600
     },
     {
-      "id": 10,
+      "id": "10",
       "estudiante_id": "10",
       "asignaturas": [
         "19",
@@ -1902,7 +1902,7 @@
       "precio": 9900
     },
     {
-      "id": 11,
+      "id": "11",
       "estudiante_id": "11",
       "asignaturas": [
         "2",
@@ -1913,7 +1913,7 @@
       "precio": 9900
     },
     {
-      "id": 12,
+      "id": "12",
       "estudiante_id": "12",
       "asignaturas": [
         "3",
@@ -1924,7 +1924,7 @@
       "precio": 12600
     },
     {
-      "id": 13,
+      "id": "13",
       "estudiante_id": "13",
       "asignaturas": [
         "4",
@@ -1935,7 +1935,7 @@
       "precio": 12600
     },
     {
-      "id": 14,
+      "id": "14",
       "estudiante_id": "14",
       "asignaturas": [
         "29",
@@ -1945,7 +1945,7 @@
       "precio": 6600
     },
     {
-      "id": 15,
+      "id": "15",
       "estudiante_id": "15",
       "asignaturas": [
         "7",
@@ -1955,7 +1955,7 @@
       "precio": 6600
     },
     {
-      "id": 16,
+      "id": "16",
       "estudiante_id": "16",
       "asignaturas": [
         "23",
@@ -1965,7 +1965,7 @@
       "precio": 6600
     },
     {
-      "id": 17,
+      "id": "17",
       "estudiante_id": "17",
       "asignaturas": [
         "12",
@@ -1975,7 +1975,7 @@
       "precio": 6600
     },
     {
-      "id": 18,
+      "id": "18",
       "estudiante_id": "18",
       "asignaturas": [
         "2",
@@ -1985,7 +1985,7 @@
       "precio": 9300
     },
     {
-      "id": 19,
+      "id": "19",
       "estudiante_id": "19",
       "asignaturas": [
         "5",
@@ -1995,7 +1995,7 @@
       "precio": 6600
     },
     {
-      "id": 20,
+      "id": "20",
       "estudiante_id": "20",
       "asignaturas": [
         "6",
@@ -2005,7 +2005,7 @@
       "precio": 6600
     },
     {
-      "id": 21,
+      "id": "21",
       "estudiante_id": "21",
       "asignaturas": [
         "5",
@@ -2015,7 +2015,7 @@
       "precio": 6600
     },
     {
-      "id": 22,
+      "id": "22",
       "estudiante_id": "22",
       "asignaturas": [
         "7",
@@ -2025,7 +2025,7 @@
       "precio": 6600
     },
     {
-      "id": 23,
+      "id": "23",
       "estudiante_id": "23",
       "asignaturas": [
         "9",
@@ -2035,7 +2035,7 @@
       "precio": 6600
     },
     {
-      "id": 24,
+      "id": "24",
       "estudiante_id": "24",
       "asignaturas": [
         "1",
@@ -2045,7 +2045,7 @@
       "precio": 9300
     },
     {
-      "id": 25,
+      "id": "25",
       "estudiante_id": "26",
       "asignaturas": [
         "1",
@@ -2055,7 +2055,7 @@
       "precio": 9300
     },
     {
-      "id": 26,
+      "id": "26",
       "estudiante_id": "1",
       "asignaturas": [
         "2",
@@ -2065,7 +2065,7 @@
       "precio": 11150
     },
     {
-      "id": 27,
+      "id": "27",
       "estudiante_id": "2",
       "asignaturas": [
         "10",
@@ -2075,7 +2075,7 @@
       "precio": 9900
     },
     {
-      "id": 28,
+      "id": "28",
       "estudiante_id": "3",
       "asignaturas": [
         "8",
@@ -2085,7 +2085,7 @@
       "precio": 9900
     },
     {
-      "id": 29,
+      "id": "29",
       "estudiante_id": "3",
       "asignaturas": [
         "4",
@@ -2095,7 +2095,7 @@
       "precio": 9900
     },
     {
-      "id": 30,
+      "id": "30",
       "estudiante_id": "4",
       "asignaturas": [
         "19",
@@ -2105,7 +2105,7 @@
       "precio": 9900
     },
     {
-      "id": 31,
+      "id": "31",
       "estudiante_id": "5",
       "asignaturas": [
         "24",
@@ -2115,7 +2115,7 @@
       "precio": 9900
     },
     {
-      "id": 32,
+      "id": "32",
       "estudiante_id": "6",
       "asignaturas": [
         "24",
@@ -2125,7 +2125,7 @@
       "precio": 11150
     },
     {
-      "id": 33,
+      "id": "33",
       "estudiante_id": "7",
       "asignaturas": [
         "5",
@@ -2135,7 +2135,7 @@
       "precio": 9900
     },
     {
-      "id": 34,
+      "id": "34",
       "estudiante_id": "8",
       "asignaturas": [
         "5",
@@ -2145,7 +2145,7 @@
       "precio": 9900
     },
     {
-      "id": 35,
+      "id": "35",
       "estudiante_id": "8",
       "asignaturas": [
         "5",
@@ -2155,7 +2155,7 @@
       "precio": 9900
     },
     {
-      "id": 36,
+      "id": "36",
       "estudiante_id": "9",
       "asignaturas": [
         "22",
@@ -2165,7 +2165,7 @@
       "precio": 9900
     },
     {
-      "id": 37,
+      "id": "37",
       "estudiante_id": "10",
       "asignaturas": [
         "4",
@@ -2175,7 +2175,7 @@
       "precio": 11150
     },
     {
-      "id": 38,
+      "id": "38",
       "estudiante_id": "11",
       "asignaturas": [
         "24",
@@ -2185,7 +2185,7 @@
       "precio": 9900
     },
     {
-      "id": 39,
+      "id": "39",
       "estudiante_id": "12",
       "asignaturas": [
         "20",
@@ -2195,7 +2195,7 @@
       "precio": 11150
     },
     {
-      "id": 40,
+      "id": "40",
       "estudiante_id": "13",
       "asignaturas": [
         "7",
@@ -2205,7 +2205,7 @@
       "precio": 9900
     },
     {
-      "id": 41,
+      "id": "41",
       "estudiante_id": "14",
       "asignaturas": [
         "1"
@@ -2214,7 +2214,7 @@
       "precio": 6200
     },
     {
-      "id": 42,
+      "id": "42",
       "estudiante_id": "14",
       "asignaturas": [
         "1",
@@ -2224,7 +2224,7 @@
       "precio": 11150
     },
     {
-      "id": 43,
+      "id": "43",
       "estudiante_id": "15",
       "asignaturas": [
         "19",
@@ -2234,7 +2234,7 @@
       "precio": 9900
     },
     {
-      "id": 44,
+      "id": "44",
       "estudiante_id": "16",
       "asignaturas": [
         "10"
@@ -2243,7 +2243,7 @@
       "precio": 4950
     },
     {
-      "id": 45,
+      "id": "45",
       "estudiante_id": "17",
       "asignaturas": [
         "4",
@@ -2253,7 +2253,7 @@
       "precio": 9900
     },
     {
-      "id": 46,
+      "id": "46",
       "estudiante_id": "18",
       "asignaturas": [
         "7",
@@ -2263,7 +2263,7 @@
       "precio": 11150
     },
     {
-      "id": 47,
+      "id": "47",
       "estudiante_id": "19",
       "asignaturas": [
         "5",
@@ -2273,7 +2273,7 @@
       "precio": 9900
     },
     {
-      "id": 48,
+      "id": "48",
       "estudiante_id": "29",
       "asignaturas": [
         "1",
@@ -2284,7 +2284,7 @@
       "precio": 16100
     },
     {
-      "id": 49,
+      "id": "49",
       "estudiante_id": "27",
       "asignaturas": [
         "9"
@@ -2293,7 +2293,7 @@
       "precio": 4950
     },
     {
-      "id": 50,
+      "id": "50",
       "estudiante_id": "8",
       "asignaturas": [
         "1",
