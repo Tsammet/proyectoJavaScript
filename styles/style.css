@@ -37,6 +37,7 @@
     justify-content: center;
     flex-direction: column;
     border: 1px solid #ccc;
+    box-shadow: 20px  20px 20px 50px rgb(222, 245, 187, 0.5 );
     padding: 20px;
     border-radius: 15px;
 }
@@ -51,12 +52,13 @@
 
 #estudiantes-formulario{
     width: 35vw;
-    height: 80vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     border: 1px solid #ccc;
+    box-shadow: 20px  20px 20px 50px rgb(222, 245, 187, 0.5 );
     padding: 20px;
     border-radius: 15px;
 }
@@ -79,6 +81,8 @@
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 15px;
+    box-shadow: 20px  20px 20px 50px rgb(222, 245, 187, 0.5 );
+
 }
 
 #matriculas-form-container{
@@ -99,9 +103,11 @@
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 15px;
+    box-shadow: 20px  20px 20px 50px rgb(222, 245, 187, 0.5 );
+
 }
 
-#moduloDep{
+#modulox{
     margin-top: 5vh;
     text-align: center;
 }
@@ -115,6 +121,7 @@
     flex-direction: column;
     margin-left: 20vw;
     text-align: center;
+    
 
 }
 #tablaSalones-container{
@@ -211,3 +218,25 @@
 
 }
 
+button{
+    background-color: black;
+    color: white;
+    height: 45px;
+    border-radius: 10px;
+}
+
+button:hover{
+    background-color: rgb(222, 245, 187);
+    color: black;
+}
+
+button:active{
+    background-color: black;
+    color: white;
+}
+
+#volverButton {
+    margin: 0 auto; /* Configura los márgenes automáticamente, centrando horizontalmente el botón */
+    display: block; /* Asegura que el botón se comporte como un bloque */
+    margin-bottom: 30px;
+}

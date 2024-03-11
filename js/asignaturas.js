@@ -41,8 +41,16 @@ const cargarFormularioAsignaturas = async () => {
         <div id="horarios-container">
         </div>
 
+        <br>
+        
         <button type="button" onclick="agregarHorario()">Agregar Horario</button>
+        
+        <br>
+
         <button type="button" onclick="crearAsignatura()">Agregar Asignatura</button>
+
+        <br>
+        
         <button type="button" onclick="mostrarListadoAsignaturas()">Mostrar Asignaturas</button>
         
         </form>

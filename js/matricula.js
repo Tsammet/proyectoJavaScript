@@ -28,9 +28,17 @@ const cargarFormularioMatriculas = async () => {
             ${periodoMatricula()}
        </select>
 
-       <button type="button" onclick="crearMatricula()">Crear Matricula</button>
+        <br>
+        
+        <button type="button" onclick="agregarAsignatura()">Agregar asignatura</button>
+
+        <br>
+        
+        <button type="button" onclick="crearMatricula()">Crear Matricula</button>
+        
+        <br>
+
        <button type="button" onclick="mostrarListadoMatriculas()">Mostrar Matricula</button>
-       <button type="button" onclick="agregarAsignatura()">Agregar asignatura</button>
 
 
     </form>

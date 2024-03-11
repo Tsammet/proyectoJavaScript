@@ -35,7 +35,12 @@ const cargarFormularioProfesores = async () => {
                 ${departamentoProfesor()}
             </select>
 
+            <br>
+            
             <button type = "button" onclick = "crearProfesor()">Agregar Docente</button>
+
+            <br>
+            
             <button type = "button" onclick = "mostrarListadoProfesores()">Mostrar Docentes</button>
         </div>
     </div>

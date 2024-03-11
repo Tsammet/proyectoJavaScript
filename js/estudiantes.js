@@ -57,8 +57,10 @@ const cargarFormularioEstudiantes = async () => {
             ${programaEstudiante()}
         </select>
 
+        <br>
 
         <button type = "button" id = "botonCrearEstudiante" onclick = "crearEstudiante()">Agregar Estudiante</button>
+        <br>
         <button type = "button" onclick = "mostrarListadoEstudiantes()">Ver los Estudiantes</button>
     </div>
     </div>
