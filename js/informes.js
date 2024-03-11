@@ -27,7 +27,7 @@ const asignaturaMasMatriculada = () => {
         listaMatriculas.forEach(matricula => {
 
             if (matricula.asignaturas.includes(asignatura.id)) {
-                countAsignatura += 1
+                countAsignatura ++
             }
         })
 
@@ -39,8 +39,8 @@ const asignaturaMasMatriculada = () => {
     })
 
     return materiaMasMatriculada
-
-
+    
+    
 }
 
 const mostrarAsignaturaMasMatriculada = () => {

@@ -188,7 +188,7 @@ const crearMatricula = async () => {
         id : listaMatriculas.length + 1,
         estudiante_id : estudianteId,
         asignaturas : asignaturas,
-        periodo_id : periodoId,
+        periodo_id : parseInt(periodoId),
         precio : precioMatricula
 
     }
