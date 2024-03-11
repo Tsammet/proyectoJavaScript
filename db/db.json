@@ -451,7 +451,7 @@
       "departamento_id": 5
     },
     {
-      "id": 31,
+      "id": "31",
       "tipo_documento": "CC",
       "numero_documento": "987654321",
       "nombre": "CarloS",
@@ -851,7 +851,7 @@
       "programa_id": 10
     },
     {
-      "id": 31,
+      "id": "31",
       "nombre": "Carlos ",
       "apellido": "Díaz",
       "tipo_documento": "CC",

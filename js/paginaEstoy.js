@@ -109,7 +109,6 @@ const periodosPage = () => {
 
 }
 
-
 const programasPage = () => {
 
     sessionStorage.setItem("pagina", 5);
@@ -128,6 +127,7 @@ const programasPage = () => {
     paginaInformes.style.display = "none"
 
 }
+
 const profesoresPage = () => {
 
     sessionStorage.setItem("pagina", 6);
@@ -185,7 +185,6 @@ const salonesPage = () => {
 
 }
 
-
 const cursosPage = () => {
 
     sessionStorage.setItem("pagina", 9);
@@ -204,6 +203,7 @@ const cursosPage = () => {
     paginaInformes.style.display = "none"
 
 }
+
 const matriculasPage = () => {
 
     sessionStorage.setItem("pagina", 10);

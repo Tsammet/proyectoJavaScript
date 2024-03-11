@@ -61,8 +61,7 @@ const cargarFormularioAsignaturas = async () => {
     listadoAsignaturas.style.display = "none"
     };
     
-
-    const crearAsignatura = async () => {
+const crearAsignatura = async () => {
 
     const codigoAsignaturaInput = document.getElementById('codigoAsignatura');
     const creditosInput = document.getElementById('creditos');
@@ -142,6 +141,7 @@ const cargarFormularioAsignaturas = async () => {
             }
         }
     }
+
 
     const nuevaAsignatura = {
         id: listaAsignaturas.length + 1,

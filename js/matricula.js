@@ -50,8 +50,6 @@ const cargarFormularioMatriculas = async () => {
 
 }
 
-
-
 const loadMatriculas = async () => {
 
     try {
