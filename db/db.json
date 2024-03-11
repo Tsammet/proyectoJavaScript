@@ -449,6 +449,14 @@
       "nombre": "Manrique",
       "apellido": "Esteban",
       "departamento_id": 5
+    },
+    {
+      "id": 31,
+      "tipo_documento": "CC",
+      "numero_documento": "987654321",
+      "nombre": "CarloS",
+      "apellido": "Sánchez",
+      "departamento_id": "5"
     }
   ],
   "alumnos": [
@@ -841,6 +849,19 @@
       "fecha_nacimiento": "2045-08-09",
       "sexo": "Femenino",
       "programa_id": 10
+    },
+    {
+      "id": 31,
+      "nombre": "Carlos ",
+      "apellido": "Díaz",
+      "tipo_documento": "CC",
+      "numero_documento": "1095838993",
+      "ciudad_residencia": "Bmanga",
+      "direccion": "cra ...",
+      "telefono": "3153560416",
+      "fecha_nacimiento": "2024-03-01",
+      "sexo": "masculino",
+      "programa_id": "6"
     }
   ],
   "cursos": [
@@ -1753,29 +1774,6 @@
       ]
     },
     {
-      "id": "30",
-      "curso_id": 30,
-      "codigo": "ALSAXG-LI-PER-2024",
-      "creditos": 3,
-      "profesor_id": 3,
-      "cupos_disponibles": 15,
-      "programa_id": 2,
-      "horario_clases": [
-        {
-          "dia": "Lunes",
-          "hora_inicio": "12:00",
-          "hora_fin": "2:00",
-          "salon_id": 1
-        },
-        {
-          "dia": "Jueves",
-          "hora_inicio": "10:00",
-          "hora_fin": "12:00",
-          "salon_id": 1
-        }
-      ]
-    },
-    {
       "id": "29",
       "curso_id": 29,
       "codigo": "ALGY-LI-PER-2024",
@@ -1788,6 +1786,29 @@
           "dia": "Lunes",
           "hora_inicio": "12:00",
           "hora_fin": "4:00",
+          "salon_id": 1
+        },
+        {
+          "dia": "Jueves",
+          "hora_inicio": "10:00",
+          "hora_fin": "12:00",
+          "salon_id": 1
+        }
+      ]
+    },
+    {
+      "id": "30",
+      "curso_id": 30,
+      "codigo": "ALSAXG-LI-PER-2024",
+      "creditos": 3,
+      "profesor_id": 3,
+      "cupos_disponibles": 15,
+      "programa_id": 2,
+      "horario_clases": [
+        {
+          "dia": "Lunes",
+          "hora_inicio": "12:00",
+          "hora_fin": "2:00",
           "salon_id": 1
         },
         {
@@ -2078,7 +2099,7 @@
       "id": "28",
       "estudiante_id": "3",
       "asignaturas": [
-        "2",
+        "5",
         "13"
       ],
       "periodo_id": 2,
@@ -2088,7 +2109,7 @@
       "id": "29",
       "estudiante_id": "3",
       "asignaturas": [
-        "2",
+        "5",
         "28"
       ],
       "periodo_id": 2,
@@ -2098,7 +2119,7 @@
       "id": "30",
       "estudiante_id": "4",
       "asignaturas": [
-        "2",
+        "5",
         "17"
       ],
       "periodo_id": 2,
@@ -2108,7 +2129,7 @@
       "id": "31",
       "estudiante_id": "5",
       "asignaturas": [
-        "2",
+        "5",
         "19"
       ],
       "periodo_id": 2,
@@ -2119,7 +2140,7 @@
       "estudiante_id": "6",
       "asignaturas": [
         "24",
-        "2"
+        "5"
       ],
       "periodo_id": 2,
       "precio": 11150

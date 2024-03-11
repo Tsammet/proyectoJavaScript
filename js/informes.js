@@ -4,11 +4,21 @@ const cargarInformes = () => {
 
     informes.innerHTML = `
     <form>
+        <div id = "botones-informe">
+        
+        <br>
 
-    <button type = "button" onclick = "mostrarHorarioEstudiante()">Mostrar Horario Estudiante</button>
-    <button type = "button" onclick = "mostrarAsignaturaMasMatriculada()">Asignatura Más Matriculada</button>
-    <button type = "button" onclick = "mostrarCostoTotalxPeriodo()">Total Por Periodo</button>
-    
+        <button type = "button" onclick = "mostrarHorarioEstudiante()">Mostrar Horario Estudiante</button>
+
+        <br>
+
+        <button type = "button" onclick = "mostrarAsignaturaMasMatriculada()">Asignatura Más Matriculada</button>
+
+        <br>
+
+        <button type = "button" onclick = "mostrarCostoTotalxPeriodo()">Total Por Periodo</button>
+
+        </div>
     </form>
         
     `
@@ -83,14 +93,17 @@ const mostrarAsignaturaMasMatriculada = () => {
         mostrarResultado.classList.add('matriMasMatriculada')
 
         mostrarResultado.innerHTML = `
+        <div id = "mas_matriculada_container">
             <h1> la asignatura mas matriculada del periodo1 tiene el ID : ${asignaturasMasMatriculadas.materiaMasMatriculadaPer1} </h1>
             <h1> la asignatura mas matriculada del periodo2 tiene el ID : ${asignaturasMasMatriculadas.materiaMasMatriculadaPer2} </h1>
+        </div>
         `;
 
         masMatriculada.appendChild(mostrarResultado)
 
         const volverButton = document.createElement('button');
         volverButton.textContent = 'Volver a los Informes';
+        volverButton.id = 'volverButton'
         volverButton.addEventListener('click', volverBotones);
         masMatriculada.appendChild(volverButton);
 
@@ -152,20 +165,26 @@ const mostrarCostoTotalxPeriodo = () => {
         mostrarResultadoCosto.classList.add('costoTotal')
 
         mostrarResultadoCosto.innerHTML = `
-
+        <div id="costoTotal-form-container">
+        <div id="costoTotal-formulario">     
             <label for = "costo_periodo_id">Periodo ID </label>
             <select type = "select" id = "costo_periodo_id" required>
                 ${periodoParaCosto()}
             </select>
-
+            <br>
             <button type = "button" onclick = "costoTotalMatriculasPorPeriodo()">GenerarTotal</button>
-
+            <br>
+            
+            </div>
+            </div>
+            <br>
         `;
 
         costoTotalPeriodo.appendChild(mostrarResultadoCosto)
 
         const volverButton = document.createElement('button');
         volverButton.textContent = 'Volver a los Informes';
+        volverButton.id = 'volverButton'
         volverButton.addEventListener('click', volverBotones);
         costoTotalPeriodo.appendChild(volverButton);
     }
@@ -195,18 +214,26 @@ const mostrarHorarioEstudiante = () => {
 
     mostrarhorarioxEstudiante.innerHTML = `
     <form>
-    <label for = "estudiantex">Estudiante ID </label>
-    <select  id = "estudiantex" required>
+    <div id="mostrarHorario-form-container">
+        <div id="mostrarHorario-formulario">      
+        <h1>MOSTRAR HORARIO ESTUDIANTE </h1>      
+        <label for = "estudiantex">Estudiante ID </label>
+            <select  id = "estudiantex" required>
             ${estudianteParaHorario()}
-    </select>
-    
-    <label for = "periodox">Periodo ID </label>
-    <select  id = "periodox" required>
+            </select>
+            
+            <label for = "periodox">Periodo ID </label>
+            <select  id = "periodox" required>
             ${periodoParaHorario()}
-    </select>
-    
-    <button type = "button" onclick = "horarioEstudiante()">Mostrar Horarios</button>
+            </select>
+
+            <br>
+            
+            <button type = "button" onclick = "horarioEstudiante()">Mostrar Horarios</button>
+            </div>
+        </div>
     </form>
+    <br>
     `;
 
     horarioxEstudiante.appendChild(mostrarhorarioxEstudiante)
@@ -214,6 +241,7 @@ const mostrarHorarioEstudiante = () => {
 
     const volverButton = document.createElement('button');
     volverButton.textContent = 'Volver a los Informes';
+    volverButton.id = 'volverButton'
     volverButton.addEventListener('click', volverBotones);
     horarioxEstudiante.appendChild(volverButton);
 }

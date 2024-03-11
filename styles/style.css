@@ -240,3 +240,63 @@ button:active{
     display: block; /* Asegura que el botón se comporte como un bloque */
     margin-bottom: 30px;
 }
+
+#botones-informe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#botones-informe button{
+    width: 25%;
+    height: 10vh;
+}
+
+#mas_matriculada_container{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+#mostrarHorario-form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10vh;
+}
+
+#mostrarHorario-formulario{
+    width: 45vw;
+    height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+#costoTotal-form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10vh;
+}
+
+#costoTotal-formulario{
+    width: 25vw;
+    height: 25vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 15px;
+}
+
