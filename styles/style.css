@@ -1,8 +1,9 @@
 * {
     margin: 0;
+    font-family: cursive;
+
     padding: 0;
 }
-
 
 
 .navbar {
@@ -99,3 +100,114 @@
     padding: 20px;
     border-radius: 15px;
 }
+
+#moduloDep{
+    margin-top: 5vh;
+    text-align: center;
+}
+
+#tabla-container{
+    width: 60vw;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20vw;
+    text-align: center;
+
+}
+#tablaSalones-container{
+    width: 60vw;
+    height: 120vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20vw;
+    text-align: center;
+
+}
+#tablaProgramas-container{
+    width: 60vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20vw;
+    text-align: center;
+
+}
+#tablaCursos-container{
+    width: 60vw;
+    height: 120vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20vw;
+    text-align: center;
+
+}
+#tablaTarifas-container{
+    width: 60vw;
+    height: 120vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20vw;
+    text-align: center;
+
+}
+#tablaEstudiantes-container{
+    
+    width: 60vw;
+    height: 250vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20vw;
+    text-align: center;
+
+}
+
+#tablaProfesores-container{
+
+    width: 60vw;
+    height: 180vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20vw;
+    text-align: center;
+
+}
+#tablaAsignaturas-container{
+
+    width: 60vw;
+    height: 450vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20vw;
+    text-align: center;
+
+}
+#tablaMatriculas-container{
+
+    width: 60vw;
+    height: 290vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20vw;
+    text-align: center;
+
+}
+
